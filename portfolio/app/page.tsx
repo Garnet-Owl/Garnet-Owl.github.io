@@ -1,5 +1,4 @@
-// app/page.tsx
-import { Mail, GithubIcon, LinkedinIcon } from 'lucide-react';
+import { Mail, GithubIcon, LinkedinIcon } from "lucide-react";
 
 export default function Home() {
   return (
@@ -41,7 +40,8 @@ export default function Home() {
             Software Engineer
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Passionate about building scalable applications and solving complex problems.
+            Passionate about building scalable applications and solving complex
+            problems.
           </p>
         </div>
       </div>
@@ -49,8 +49,7 @@ export default function Home() {
       {/* Projects Grid */}
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
         <button
-          type="button"
-          onClick={() => window.open('/projects/project1', '_blank')}
+          onClick={() => window.open("/projects/project1", "_blank")}
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className="mb-3 text-2xl font-semibold">
@@ -62,10 +61,10 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             Description of your first major project.
           </p>
-        </a>
+        </button>
 
-        <a
-          href="#"
+        <button
+          onClick={() => window.open("/projects/project2", "_blank")}
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className="mb-3 text-2xl font-semibold">
@@ -77,10 +76,10 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             Description of your second major project.
           </p>
-        </a>
+        </button>
 
-        <a
-          href="#"
+        <button
+          onClick={() => window.open("/projects/project3", "_blank")}
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
         >
           <h2 className="mb-3 text-2xl font-semibold">
@@ -92,7 +91,7 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             Description of your third major project.
           </p>
-        </a>
+        </button>
       </div>
     </main>
   );
