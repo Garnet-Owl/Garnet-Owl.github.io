@@ -2,8 +2,10 @@
 name: Deploy Next.js site to Pages
 
 on:
+  # Build on all branches
   push:
-    branches: ["main"]
+    branches:
+      - '**'  # matches every branch
   workflow_dispatch:
 
 permissions:
@@ -52,6 +54,7 @@ jobs:
           path: ./out
 
   deploy:
+    if: github.ref == 'refs/heads/main' # Only deploy on main branch
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
