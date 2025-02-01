@@ -3,8 +3,8 @@ const nextConfig = {
   output: 'export',
   basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? '',
   images: {
-    loader: 'custom',
-    loaderFile: './app/image-loader.ts',
+    unoptimized: true,
+    // Remove custom loader configuration as it's causing issues
   },
   reactStrictMode: true,
   trailingSlash: true,
