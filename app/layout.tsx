@@ -1,14 +1,14 @@
 import { ThemeProvider } from './context/ThemeContext';
 import { ResponsiveProvider } from './context/ResponsiveContext';
 import { Inter } from 'next/font/google';
+import Analytics from './components/Analytics';
 import './globals.css';
-import DebugInfo from './debug-info';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Your Portfolio',
-  description: 'Software Engineer Portfolio showcasing projects and skills',
+  title: 'James Wanjiku - Software Engineer Portfolio',
+  description: 'Portfolio of James Wanjiku, a Junior Software Engineer passionate about crafting robust and scalable solutions with modern technologies.',
 };
 
 export default function RootLayout({
@@ -18,11 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Analytics />
+      </head>
       <body className={inter.className}>
         <ThemeProvider>
           <ResponsiveProvider>
             {children}
-            <DebugInfo />
           </ResponsiveProvider>
         </ThemeProvider>
       </body>
