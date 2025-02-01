@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export", // Enables static exports
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
   images: {
     unoptimized: true, // Required for static export
   },
