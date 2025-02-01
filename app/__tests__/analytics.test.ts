@@ -102,8 +102,8 @@ describe("Google Analytics Integration", () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     // Verify event parameters
-    const foundEvent = (window as any).dataLayer?.find(
-      (item: any): item is GAEvent =>
+    const foundEvent = window.dataLayer?.find(
+      (item): item is GAEvent =>
         isGAEvent(item) &&
         item.event === testEvent.event &&
         item.event_category === testEvent.event_category &&

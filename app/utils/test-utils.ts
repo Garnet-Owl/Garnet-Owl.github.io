@@ -19,8 +19,8 @@ declare global {
 
 // Initialize dataLayer if it doesn't exist
 if (typeof window !== "undefined") {
-  (window as { dataLayer: Object[] }).dataLayer =
-    (window as { dataLayer?: Object[] }).dataLayer || [];
+  (window as { dataLayer: object[] }).dataLayer =
+    (window as { dataLayer?: object[] }).dataLayer || [];
 }
 
 /**
@@ -36,14 +36,16 @@ export const findGAEvent = (
   eventName: string,
   params?: Partial<GAEvent>
 ): GAEvent | undefined => {
-  const dataLayer = (window as { dataLayer?: Object[] }).dataLayer;
+  const dataLayer = (window as { dataLayer?: object[] }).dataLayer;
   if (!dataLayer) return undefined;
 
   return dataLayer?.find((item): item is GAEvent => {
     if (!isGAEvent(item)) return false;
     if (item.event !== eventName) return false;
     if (!params) return true;
-    return Object.entries(params).every(([key, value]) => item[key] === value);
+    return Object.entries(params).every(
+      ([key, value]: [string, unknown]) => item[key] === value
+    );
   });
 };
 
@@ -61,7 +63,7 @@ export const isGAEvent = (item: unknown): item is GAEvent => {
  */
 export const pushToDataLayer = (event: GAEvent | unknown[]) => {
   if (typeof window !== "undefined") {
-    const dataLayer = (window as { dataLayer?: Object[] }).dataLayer || [];
+    const dataLayer = (window as { dataLayer?: object[] }).dataLayer || [];
     dataLayer.push(event);
   }
 };
