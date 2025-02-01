@@ -2,6 +2,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import { ResponsiveProvider } from './context/ResponsiveContext';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import DebugInfo from './debug-info';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ResponsiveProvider>
             {children}
+            <DebugInfo />
           </ResponsiveProvider>
         </ThemeProvider>
       </body>

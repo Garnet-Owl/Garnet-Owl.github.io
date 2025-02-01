@@ -43,7 +43,8 @@ jobs:
       - name: Build with Next.js
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          GITHUB_ACTIONS: true
+          NEXT_PUBLIC_BASE_PATH: /Garnet-Owl.github.io
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

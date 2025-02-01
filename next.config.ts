@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? '',
   images: {
     unoptimized: true,
-    // Remove custom loader configuration as it's causing issues
   },
-  reactStrictMode: true,
+  // Change basePath and assetPrefix based on GITHUB_ACTIONS environment variable
+  basePath: process.env.GITHUB_ACTIONS ? '/Garnet-Owl.github.io' : '',
+  assetPrefix: process.env.GITHUB_ACTIONS ? '/Garnet-Owl.github.io/' : '',
+  // Enable if you need to navigate between pages
   trailingSlash: true,
 }
 
