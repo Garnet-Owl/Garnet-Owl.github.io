@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export", // Enables static exports
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
+  output: 'export',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? '',
   images: {
-    unoptimized: true, // Required for static export
+    loader: 'custom',
+    loaderFile: './app/image-loader.ts',
   },
   reactStrictMode: true,
-  trailingSlash: true, // Recommended for GitHub Pages
-};
+  trailingSlash: true,
+}
 
 export default nextConfig;
