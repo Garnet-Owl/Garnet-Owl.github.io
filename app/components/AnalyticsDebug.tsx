@@ -9,10 +9,6 @@ type WindowWithDataLayer = Window & {
   dataLayer?: Array<Record<string, unknown>>;
 };
 
-interface TestEvent {
-  timestamp: string;
-}
-
 export default function AnalyticsDebug(): ReactElement | null {
   useEffect(() => {
     // Only run in development
