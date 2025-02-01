@@ -4,17 +4,17 @@ import { type GAEvent, isGAEvent, pushToDataLayer } from "../utils/test-utils";
 describe("Google Analytics Integration", () => {
   beforeEach(() => {
     // Initialize dataLayer
-    (window as any).dataLayer = [];
+    window.dataLayer = [];
 
     // Initialize gtag
-    window.gtag = function (...args: any[]) {
+    window.gtag = function (...args: unknown[]) {
       pushToDataLayer(args);
     };
   });
 
   it("should initialize dataLayer", () => {
-    expect((window as any).dataLayer).toBeDefined();
-    expect(Array.isArray((window as any).dataLayer)).toBe(true);
+    expect(window.dataLayer).toBeDefined();
+    expect(Array.isArray(window.dataLayer)).toBe(true);
   });
 
   it("should track custom events", async () => {
@@ -34,8 +34,8 @@ describe("Google Analytics Integration", () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     // Check if event was tracked
-    const foundEvent = (window as any).dataLayer?.find(
-      (item: any): item is GAEvent =>
+    const foundEvent = window.dataLayer?.find(
+      (item): item is GAEvent =>
         isGAEvent(item) &&
         item.event === testEvent.event &&
         item.button_name === testEvent.button_name
@@ -55,8 +55,8 @@ describe("Google Analytics Integration", () => {
     pushToDataLayer(mockPageview);
 
     // Verify pageview was tracked
-    const foundPageview = (window as any).dataLayer?.find(
-      (item: any): item is GAEvent =>
+    const foundPageview = window.dataLayer?.find(
+      (item): item is GAEvent =>
         isGAEvent(item) &&
         item.event === mockPageview.event &&
         item.page_path === mockPageview.page_path
@@ -80,7 +80,7 @@ describe("Google Analytics Integration", () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
 
     // Verify all events were tracked
-    const dataLayer = (window as any).dataLayer;
+    const dataLayer = window.dataLayer;
     expect(dataLayer?.length).toBeGreaterThanOrEqual(events.length);
   });
 

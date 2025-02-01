@@ -3,23 +3,36 @@
 import { useEffect } from "react";
 import { sendGAEvent } from "@next/third-parties/google";
 
-export default function AnalyticsDebug() {
+import { type ReactElement } from "react";
+
+type WindowWithDataLayer = Window & {
+  dataLayer?: Array<Record<string, unknown>>;
+};
+
+interface TestEvent {
+  timestamp: string;
+}
+
+export default function AnalyticsDebug(): ReactElement | null {
   useEffect(() => {
     // Only run in development
     if (process.env.NODE_ENV !== "production") {
       console.log("🔍 Analytics Debug Information:");
 
       // Check GA initialization
-      if (typeof (window as any).gtag === "function") {
+      if (typeof window.gtag === "function") {
         console.log("✅ Google Analytics (gtag) is initialized");
       } else {
         console.warn("⚠️ Google Analytics (gtag) is not initialized");
       }
 
       // Check dataLayer
-      if (Array.isArray((window as any).dataLayer)) {
+      if (Array.isArray((window as WindowWithDataLayer).dataLayer)) {
         console.log("✅ dataLayer is initialized");
-        console.log("Current dataLayer:", (window as any).dataLayer);
+        console.log(
+          "Current dataLayer:",
+          (window as WindowWithDataLayer).dataLayer
+        );
       } else {
         console.warn("⚠️ dataLayer is not initialized");
       }
