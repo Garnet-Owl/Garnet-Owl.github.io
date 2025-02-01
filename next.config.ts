@@ -4,10 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Change basePath and assetPrefix based on GITHUB_ACTIONS environment variable
-  basePath: process.env.GITHUB_ACTIONS ? '/Garnet-Owl.github.io' : '',
-  assetPrefix: process.env.GITHUB_ACTIONS ? '/Garnet-Owl.github.io/' : '',
-  // Enable if you need to navigate between pages
+  // Disable basePath and assetPrefix
+  // basePath: '',
+  // assetPrefix: '',
   trailingSlash: true,
 }
 
