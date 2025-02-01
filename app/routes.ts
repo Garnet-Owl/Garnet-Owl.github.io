@@ -1,5 +1,5 @@
 export enum PUBLIC_ROUTES {
-  LOGIN = "/login"
+  LOGIN = "/login",
 }
 
 export enum PROTECTED_ROUTES {
