@@ -1,7 +1,7 @@
 import { ThemeProvider } from "./context/ThemeContext";
 import { ResponsiveProvider } from "./context/ResponsiveContext";
 import { Inter } from "next/font/google";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,6 +23,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ResponsiveProvider>{children}</ResponsiveProvider>
         </ThemeProvider>
+        <GoogleAnalytics gaId="G-VVU80YL13K" />
       </body>
     </html>
   );
