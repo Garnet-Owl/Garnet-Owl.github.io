@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { Box, Typography, Container, Button, Stack } from "@mui/material";
 import { GitHub, LinkedIn } from "@mui/icons-material";
