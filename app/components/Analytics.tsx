@@ -3,26 +3,24 @@
 import Script from 'next/script';
 
 export default function Analytics() {
+  const GA_MEASUREMENT_ID = 'G-VVU80YL13K';
+  
   return (
     <>
-      {/* Google tag (gtag.js) */}
-      <Script 
-        async 
-        src="https://www.googletagmanager.com/gtag/js?id=G-VVU80YL13K"
-        strategy="afterInteractive"
-      />
       <Script
-        id="google-analytics"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-VVU80YL13K');
-          `
-        }}
       />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
     </>
   );
 }
