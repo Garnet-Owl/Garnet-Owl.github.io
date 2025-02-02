@@ -1,8 +1,10 @@
 import { createTheme, alpha } from "@mui/material/styles";
 
 // Define custom colors
-const primaryMain = "#2196f3"; // A professional blue
-const secondaryMain = "#f50057"; // A vibrant accent color
+const primaryMain = "#6F42C1"; // Deep purple primary
+const secondaryMain = "#7950F2"; // Lighter purple accent
+const darkBackgroundMain = "#0A0817"; // Very dark purple-black
+const darkBackgroundPaper = "#161130"; // Slightly lighter dark purple
 
 // Create theme instance
 const theme = createTheme({
@@ -19,13 +21,14 @@ const theme = createTheme({
       dark: alpha(secondaryMain, 1.2),
     },
     background: {
-      default: "#ffffff",
-      paper: "#f5f5f5",
+      default: darkBackgroundMain,
+      paper: darkBackgroundPaper,
     },
     text: {
-      primary: "rgba(0, 0, 0, 0.87)",
-      secondary: "rgba(0, 0, 0, 0.6)",
+      primary: "#fff",
+      secondary: "rgba(255, 255, 255, 0.7)",
     },
+    mode: "dark",
   },
 
   // Typography settings

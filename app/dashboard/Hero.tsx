@@ -2,7 +2,7 @@
 
 import React from "react";
 import TypewriterEffect from "@/app/components/TypewriterEffect";
-import ProfileImage from "@/app/components/ProfileImage";
+import ProfileImage from "@/app/dashboard/components/ProfileImage";
 import { Box, Typography, Container, Button, Stack } from "@mui/material";
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import { useResponsive } from "@/app/context/ResponsiveContext";
