@@ -1,4 +1,5 @@
 import React from "react";
+import TypewriterEffect from "@/app/components/TypewriterEffect";
 import { Box, Typography, Container, Button, Stack } from "@mui/material";
 import { GitHub, LinkedIn } from "@mui/icons-material";
 import { useResponsive } from "@/app/context/ResponsiveContext";
@@ -29,7 +30,7 @@ const Hero = () => {
               lineHeight: 1.2,
             }}
           >
-            Hi, I&apos;m James Wanjiku, a
+            <TypewriterEffect text="Hi. My name is James Wanjiku." speed={70} />
             <Box
               component="span"
               sx={{
@@ -38,7 +39,11 @@ const Hero = () => {
                 mt: 1,
               }}
             >
-              Junior Software Engineer
+              <TypewriterEffect
+                text="A Junior Software Engineer"
+                speed={70}
+                delay={3300}
+              />
             </Box>
           </Typography>
 
@@ -50,9 +55,11 @@ const Hero = () => {
               color: "text.secondary",
             }}
           >
-            Crafting robust and scalable solutions with modern technologies.
-            Passionate about building exceptional software that makes a
-            difference.
+            <TypewriterEffect
+              text="Crafting robust and scalable solutions with modern technologies. Passionate about building exceptional software that makes a difference."
+              speed={30}
+              delay={5600}
+            />
           </Typography>
 
           <Stack
