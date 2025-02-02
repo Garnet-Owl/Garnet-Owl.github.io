@@ -2,6 +2,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { ResponsiveProvider } from "./context/ResponsiveContext";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Header from './components/Header';
+import Box from '@mui/material/Box';
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,9 +23,32 @@ export default function RootLayout({
     <html lang="en">
       <head></head>
       <GoogleAnalytics gaId="G-VVW80YL13K" />
-      <body className={inter.className}>
+      <body className={inter.className} style={{ margin: 0 }}>
         <ThemeProvider>
-          <ResponsiveProvider>{children}</ResponsiveProvider>
+          <ResponsiveProvider>
+            <Box 
+              component="main" 
+              sx={{ 
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+            >
+              <Header />
+              <Box 
+                component="div" 
+                sx={{ 
+                  flexGrow: 1,
+                  pt: { xs: 7, sm: 8 }, // Responsive padding for different screen sizes
+                  px: 2 // Add some horizontal padding
+                }}
+              >
+                {children}
+              </Box>
+            </Box>
+          </ResponsiveProvider>
         </ThemeProvider>
       </body>
     </html>
