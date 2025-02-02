@@ -19,11 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head></head>
+      <GoogleAnalytics gaId="G-VVW80YL13K" />
       <body className={inter.className}>
         <ThemeProvider>
           <ResponsiveProvider>{children}</ResponsiveProvider>
         </ThemeProvider>
-        <GoogleAnalytics gaId="G-VVU80YL13K" />
       </body>
     </html>
   );
