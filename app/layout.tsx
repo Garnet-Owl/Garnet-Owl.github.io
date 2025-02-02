@@ -2,8 +2,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import { ResponsiveProvider } from "./context/ResponsiveContext";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Header from './components/Header';
-import Box from '@mui/material/Box';
+import Header from "./components/Header";
+import Box from "@mui/material/Box";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,26 +23,34 @@ export default function RootLayout({
     <html lang="en">
       <head></head>
       <GoogleAnalytics gaId="G-VVW80YL13K" />
-      <body className={inter.className} style={{ margin: 0 }}>
+      <body
+        className={inter.className}
+        style={{ margin: 0, overflowY: "auto" }}
+      >
         <ThemeProvider>
           <ResponsiveProvider>
-            <Box 
-              component="main" 
-              sx={{ 
-                minHeight: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative',
-                overflow: 'hidden'
+            <Box
+              component="div"
+              sx={{
+                width: "100%",
+                minHeight: "100vh",
+                display: "flex",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                position: "relative",
               }}
             >
               <Header />
-              <Box 
-                component="div" 
-                sx={{ 
+              <Box
+                component="main"
+                sx={{
                   flexGrow: 1,
-                  pt: { xs: 7, sm: 8 }, // Responsive padding for different screen sizes
-                  px: 2 // Add some horizontal padding
+                  width: "100%",
+                  pt: { xs: 8, sm: 9 }, // Increased padding-top for header space
+                  px: { xs: 2, sm: 3, md: 4 }, // Responsive horizontal padding
+                  pb: { xs: 4, sm: 5 }, // Bottom padding
+                  overflowY: "auto",
                 }}
               >
                 {children}
