@@ -6,6 +6,7 @@ import React, {
   useState,
   useCallback,
   useMemo,
+  useEffect,
 } from "react";
 import {
   ThemeProvider as MUIThemeProvider,
@@ -37,10 +38,20 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme");
+      return saved ? JSON.parse(saved) : true;
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("theme", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
   const toggleTheme = useCallback(() => {
-    setIsDarkMode((prev) => !prev);
+    setIsDarkMode((prev: boolean): boolean => !prev);
   }, []);
 
   // Create theme based on current mode

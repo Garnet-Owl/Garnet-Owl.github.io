@@ -5,8 +5,8 @@ import { AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 import { useTheme } from "../context/ThemeContext";
 import { useResponsive } from "../context/ResponsiveContext";
 import {
-  Brightness7 as LightModeIcon,
-  Brightness4 as DarkModeIcon,
+  WbSunny as SunIcon,
+  NightsStay as MoonIcon,
 } from "@mui/icons-material";
 import Box from "@mui/material/Box";
 import { alpha } from "@mui/material/styles";
@@ -14,6 +14,17 @@ import { alpha } from "@mui/material/styles";
 const Header = () => {
   const { toggleTheme, isDarkMode } = useTheme();
   const { fontSize, spacing, getResponsiveValue } = useResponsive();
+
+  const headerHeight = getResponsiveValue(
+    {
+      xs: 64,
+      sm: 72,
+      md: 80,
+      lg: 88,
+      xl: 96,
+    },
+    72
+  );
 
   return (
     <AppBar
@@ -27,6 +38,7 @@ const Header = () => {
         top: 0,
         left: 0,
         right: 0,
+        height: headerHeight,
       }}
     >
       <Toolbar
@@ -34,13 +46,13 @@ const Header = () => {
           justifyContent: "space-between",
           minHeight: getResponsiveValue(
             {
-              xs: 56,
-              sm: 64,
-              md: 72,
-              lg: 80,
-              xl: 88,
+              xs: 64,
+              sm: 72,
+              md: 80,
+              lg: 88,
+              xl: 96,
             },
-            64
+            72
           ),
           px: getResponsiveValue(
             {
@@ -56,10 +68,19 @@ const Header = () => {
       >
         {/* Logo/Brand */}
         <Typography
-          variant="h6"
+          variant="h5"
           sx={{
             fontWeight: 700,
-            fontSize: fontSize.h6,
+            fontSize: getResponsiveValue(
+              {
+                xs: fontSize.h6,
+                sm: fontSize.h5,
+                md: fontSize.h5,
+                lg: fontSize.h4,
+                xl: fontSize.h4,
+              },
+              fontSize.h5
+            ),
             background: isDarkMode
               ? "linear-gradient(45deg, #6F42C1, #7950F2)"
               : "linear-gradient(45deg, #2196f3, #1976d2)",
@@ -110,7 +131,7 @@ const Header = () => {
               height: "auto",
             }}
           >
-            {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+            {isDarkMode ? <SunIcon /> : <MoonIcon />}
           </Box>
         </IconButton>
       </Toolbar>
