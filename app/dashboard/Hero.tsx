@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import TypewriterEffect from "@/app/components/TypewriterEffect";
 import ProfileImage from "@/app/dashboard/components/ProfileImage";
