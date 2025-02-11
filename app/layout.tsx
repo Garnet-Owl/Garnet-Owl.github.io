@@ -25,21 +25,28 @@ export default function RootLayout({
       <GoogleAnalytics gaId="G-VVW80YL13K" />
       <body
         className={inter.className}
-        style={{ margin: 0, overflowY: "auto" }}
+        style={{
+          margin: 0,
+          minHeight: '100dvh',
+          overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch',
+          position: 'relative'
+        }}
       >
         <ThemeProvider>
           <ResponsiveProvider>
             <Box
               component="div"
               sx={{
-                width: "100%",
-                minHeight: "100vh",
-                display: "flex",
-                flexDirection: "column",
-                overflowX: "hidden",
-                overflowY: "auto",
-                position: "relative",
-              }}
+              width: "100%",
+              minHeight: "100dvh",
+              display: "flex",
+              flexDirection: "column",
+              overflowX: "hidden",
+              overflowY: "auto",
+              position: "relative",
+                WebkitOverflowScrolling: "touch"
+                }}
             >
               <Header />
               <Box
@@ -47,9 +54,9 @@ export default function RootLayout({
                 sx={{
                   flexGrow: 1,
                   width: "100%",
-                  pt: { xs: 8, sm: 9 }, // Increased padding-top for header space
+                  pt: { xs: 6, sm: 8 }, // Reduced padding-top for mobile
                   px: { xs: 2, sm: 3, md: 4 }, // Responsive horizontal padding
-                  pb: { xs: 4, sm: 5 }, // Bottom padding
+                  pb: { xs: 6, sm: 6 }, // Increased bottom padding for better spacing
                   overflowY: "auto",
                 }}
               >
