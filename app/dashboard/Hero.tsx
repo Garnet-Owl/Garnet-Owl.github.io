@@ -1,9 +1,9 @@
 import React from "react";
-import TypewriterEffect from "@/app/components/TypewriterEffect";
-import ProfileImage from "@/app/dashboard/components/ProfileImage";
+import TypewriterEffect from "@/components/TypewriterEffect";
+import ProfileImage from "@/dashboard/components/ProfileImage";
 import { Box, Typography, Container, Button, Stack } from "@mui/material";
 import { GitHub, LinkedIn } from "@mui/icons-material";
-import { useResponsive } from "@/app/context/ResponsiveContext";
+import { useResponsive } from "@/context/ResponsiveContext";
 
 const Hero = () => {
   const { isMobile } = useResponsive();
