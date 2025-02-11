@@ -5,7 +5,9 @@ import { z } from "zod";
 const ProjectSchema = z.object({
   title: z.string().min(1),
   description: z.string().min(1),
-  technologies: z.string().transform(str => str.split(',').map(s => s.trim())), // Convert comma-separated string to array
+  technologies: z
+    .string()
+    .transform((str) => str.split(",").map((s) => s.trim())), // Convert comma-separated string to array
   githubUrl: z.string().url().optional(),
   liveUrl: z.string().url().optional(),
   imageUrl: z.string().optional(),
@@ -18,10 +20,12 @@ export async function GET() {
       orderBy: { completedAt: "desc" },
     });
     // Convert technologies string to array when sending to client
-    const formattedProjects = projects.map(project => ({
-      ...project,
-      technologies: project.technologies.split(',').map(t => t.trim())
-    }));
+    const formattedProjects = projects.map(
+      (project: { technologies: string }) => ({
+        ...project,
+        technologies: project.technologies.split(",").map((t) => t.trim()),
+      })
+    );
     return NextResponse.json(formattedProjects);
   } catch (error) {
     console.error("Error fetching projects:", error);
@@ -40,9 +44,9 @@ export async function POST(request: Request) {
     const project = await prisma.project.create({
       data: {
         ...validatedData,
-        technologies: Array.isArray(validatedData.technologies) 
-          ? validatedData.technologies.join(',') 
-          : validatedData.technologies
+        technologies: Array.isArray(validatedData.technologies)
+          ? validatedData.technologies.join(",")
+          : validatedData.technologies,
       },
     });
 
@@ -65,9 +69,9 @@ export async function PUT(request: Request) {
       where: { id },
       data: {
         ...validatedData,
-        technologies: Array.isArray(validatedData.technologies) 
-          ? validatedData.technologies.join(',') 
-          : validatedData.technologies
+        technologies: Array.isArray(validatedData.technologies)
+          ? validatedData.technologies.join(",")
+          : validatedData.technologies,
       },
     });
 
