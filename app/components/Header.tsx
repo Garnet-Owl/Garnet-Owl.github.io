@@ -30,8 +30,7 @@ const Header = () => {
     <AppBar
       position="fixed"
       sx={{
-        background: (theme) => alpha(theme.palette.background.default, 0.8),
-        backdropFilter: "blur(8px)",
+        background: (theme) => theme.palette.background.default,
         borderBottom: "1px solid",
         borderColor: "divider",
         zIndex: (theme) => theme.zIndex.drawer + 1,
