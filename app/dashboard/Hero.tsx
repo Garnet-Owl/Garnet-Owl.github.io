@@ -87,7 +87,7 @@ const Hero = () => {
               <Button
                 variant="contained"
                 size="large"
-                href="#projects"
+                href="/projects"
                 sx={{
                   minWidth: 140,
                   fontSize: "1rem",

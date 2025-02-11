@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { GitHub } from "@mui/icons-material";
-import { prisma } from "./db";
+import { prisma } from "./utils/db";
 
 // Define Project type
 type Project = {
