@@ -13,14 +13,16 @@ const Hero = () => {
       component="section"
       sx={{
         position: "relative",
-        height: isMobile ? "calc(100vh - 64px)" : "calc(100vh - 72px)",
+        height: "100vh",
         display: "flex",
         alignItems: "center",
         bgcolor: "background.default",
         color: "text.primary",
+        px: 0,
+        mx: 0
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" disableGutters>
         <Box
           sx={{
             display: "flex",
