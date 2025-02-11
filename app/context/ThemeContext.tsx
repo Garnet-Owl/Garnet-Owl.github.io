@@ -105,33 +105,50 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         ].join(","),
         h1: {
           fontWeight: 700,
-          fontSize: "3.5rem",
+          fontSize: "2.5rem",
           lineHeight: 1.2,
+          "@media (min-width:600px)": {
+            fontSize: "3rem",
+          },
         },
         h2: {
           fontWeight: 600,
-          fontSize: "2.5rem",
+          fontSize: "2rem",
           lineHeight: 1.3,
+          "@media (min-width:600px)": {
+            fontSize: "2.25rem",
+          },
         },
         h3: {
           fontWeight: 600,
-          fontSize: "2rem",
+          fontSize: "1.75rem",
           lineHeight: 1.4,
+          "@media (min-width:600px)": {
+            fontSize: "1.875rem",
+          },
         },
         h4: {
           fontWeight: 600,
-          fontSize: "1.5rem",
+          fontSize: "1.25rem",
           lineHeight: 1.4,
         },
         h5: {
           fontWeight: 500,
-          fontSize: "1.25rem",
+          fontSize: "1rem",
           lineHeight: 1.4,
         },
         h6: {
           fontWeight: 500,
-          fontSize: "1rem",
+          fontSize: "0.875rem",
           lineHeight: 1.4,
+        },
+        body1: {
+          fontSize: "1rem",
+          lineHeight: 1.5,
+        },
+        body2: {
+          fontSize: "0.875rem",
+          lineHeight: 1.5,
         },
       },
       components: {
