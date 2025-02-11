@@ -38,6 +38,12 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme");
@@ -45,6 +51,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     }
     return true;
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(isDarkMode));
@@ -64,12 +74,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         primary: {
           main: colors.primaryMain,
           light: alpha(colors.primaryMain, 0.8),
-          dark: alpha(colors.primaryMain, 1.2),
+          dark: alpha(colors.primaryMain, 1),
         },
         secondary: {
           main: colors.secondaryMain,
           light: alpha(colors.secondaryMain, 0.8),
-          dark: alpha(colors.secondaryMain, 1.2),
+          dark: alpha(colors.secondaryMain, 1),
         },
         background: {
           default: colors.backgroundMain,
@@ -155,6 +165,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     () => ({ toggleTheme, isDarkMode }),
     [toggleTheme, isDarkMode]
   );
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <ThemeContext.Provider value={contextValue}>
