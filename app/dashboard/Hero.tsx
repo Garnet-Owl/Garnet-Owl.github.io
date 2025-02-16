@@ -73,7 +73,7 @@ const Hero = () => {
               }}
             >
               <TypewriterEffect
-                text="I craft robust and scalable solutions with modern technologies, and I'm Passionate about building exceptional software that makes a difference."
+                text="Passionate about building exceptional software that makes a difference, I craft robust and scalable solutions with modern technologies"
                 speed={40}
                 delay={5600}
               />
