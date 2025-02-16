@@ -21,16 +21,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="WxFqIjvlT8IrfaIGo5sdwK3hZcdrXMjcLrJPEnyivAc"
+        />
+      </head>
       <GoogleAnalytics gaId="G-VVW80YL13K" />
       <body
         className={inter.className}
         style={{
           margin: 0,
-          minHeight: '100dvh',
-          overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          position: 'relative'
+          minHeight: "100dvh",
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
+          position: "relative",
         }}
       >
         <ThemeProvider>
@@ -38,15 +43,15 @@ export default function RootLayout({
             <Box
               component="div"
               sx={{
-              width: "100%",
-              minHeight: "100dvh",
-              display: "flex",
-              flexDirection: "column",
-              overflowX: "hidden",
-              overflowY: "auto",
-              position: "relative",
-                WebkitOverflowScrolling: "touch"
-                }}
+                width: "100%",
+                minHeight: "100dvh",
+                display: "flex",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                position: "relative",
+                WebkitOverflowScrolling: "touch",
+              }}
             >
               <Header />
               <Box
