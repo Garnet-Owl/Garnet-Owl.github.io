@@ -1,39 +1,92 @@
 "use client";
 
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import Image from "next/image";
+import { useResponsive } from "@/app/context/ResponsiveContext";
+import { alpha } from "@mui/material/styles";
 
 interface ProfileImageProps {
   imageUrl?: string;
 }
 
 const ProfileImage: React.FC<ProfileImageProps> = ({
-  imageUrl = "/images/profile/linkedinprf.jpg", // Placeholder until you add your photo
+  imageUrl = "/images/profile/linkedinprf.jpg",
 }) => {
+  const { dimensions, isMobile } = useResponsive();
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
         position: "relative",
-        width: { xs: "200px", sm: "250px", md: "300px" },
-        height: { xs: "200px", sm: "250px", md: "300px" },
-        borderRadius: "15px",
+        width: { xs: 220, sm: 240, md: 280 },
+        height: { xs: 220, sm: 240, md: 280 },
+        borderRadius: "16px",
         overflow: "hidden",
-        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-        backdropFilter: "blur(5px)",
-        border: "1px solid",
-        borderColor: "divider",
-        bgcolor: "background.paper",
-        mx: { xs: "auto", md: 0 },
-        mb: { xs: 4, md: 0 },
+        boxShadow:
+          theme.palette.mode === "dark"
+            ? `0 16px 40px -12px ${alpha(theme.palette.common.black, 0.5)}, 
+             0 0 0 1px ${alpha(theme.palette.primary.main, 0.1)},
+             0 0 0 4px ${alpha(theme.palette.background.paper, 0.3)}`
+            : `0 16px 40px -12px ${alpha(theme.palette.common.black, 0.15)},
+             0 0 0 1px ${alpha(theme.palette.divider, 0.1)},
+             0 0 0 4px ${alpha(theme.palette.background.paper, 0.3)}`,
+        mx: isMobile ? "auto" : 0,
+        mb: isMobile ? 2 : 0,
+        transform: "perspective(1000px) rotateY(-5deg)",
+        transition: "all 0.5s ease",
+        "&:hover": {
+          transform: "perspective(1000px) rotateY(0deg) translateY(-5px)",
+          boxShadow:
+            theme.palette.mode === "dark"
+              ? `0 24px 50px -12px ${alpha(theme.palette.common.black, 0.6)},
+               0 0 0 1px ${alpha(theme.palette.primary.main, 0.2)},
+               0 0 0 4px ${alpha(theme.palette.background.paper, 0.4)}`
+              : `0 24px 50px -12px ${alpha(theme.palette.common.black, 0.2)},
+               0 0 0 1px ${alpha(theme.palette.divider, 0.2)},
+               0 0 0 4px ${alpha(theme.palette.background.paper, 0.4)}`,
+        },
       }}
     >
+      {/* Light effect overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,
+          background:
+            theme.palette.mode === "dark"
+              ? `linear-gradient(135deg, ${alpha(
+                  theme.palette.primary.main,
+                  0.2
+                )} 0%, transparent 40%, transparent 80%, ${alpha(
+                  theme.palette.primary.main,
+                  0.15
+                )} 100%)`
+              : `linear-gradient(135deg, ${alpha(
+                  theme.palette.primary.main,
+                  0.1
+                )} 0%, transparent 40%, transparent 80%, ${alpha(
+                  theme.palette.primary.main,
+                  0.08
+                )} 100%)`,
+          pointerEvents: "none",
+          borderRadius: "inherit",
+        }}
+      />
+
       <Image
         src={imageUrl}
-        alt="Profile"
+        alt="James Wanjiku"
         fill
+        sizes="(max-width: 600px) 220px, (max-width: 900px) 240px, 280px"
         style={{
           objectFit: "cover",
+          objectPosition: "center",
         }}
         priority
       />

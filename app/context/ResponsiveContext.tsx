@@ -30,6 +30,14 @@ interface Spacing {
   containerPadding: number;
   sectionSpacing: number;
   elementSpacing: number;
+  mainPaddingTop: number;
+  mainPaddingX: number;
+  mainPaddingBottom: number;
+}
+
+interface Dimensions {
+  header: { height: number };
+  profileImage: { width: number | string; height: number | string };
 }
 
 type ResponsiveContextType = {
@@ -45,6 +53,7 @@ type ResponsiveContextType = {
   // Dynamic values
   fontSize: FontSizes;
   spacing: Spacing;
+  dimensions: Dimensions;
 
   // Screen dimensions
   screenWidth: number;
@@ -135,26 +144,65 @@ const defaultSpacing: { [key in BreakPoint]: Spacing } = {
     containerPadding: 16,
     sectionSpacing: 32,
     elementSpacing: 16,
+    mainPaddingTop: 48, // 6 in MUI spacing
+    mainPaddingX: 16, // 2 in MUI spacing
+    mainPaddingBottom: 48, // 6 in MUI spacing
   },
   sm: {
     containerPadding: 24,
     sectionSpacing: 48,
     elementSpacing: 24,
+    mainPaddingTop: 64, // 8 in MUI spacing
+    mainPaddingX: 24, // 3 in MUI spacing
+    mainPaddingBottom: 48, // 6 in MUI spacing
   },
   md: {
     containerPadding: 32,
     sectionSpacing: 64,
     elementSpacing: 32,
+    mainPaddingTop: 64, // 8 in MUI spacing
+    mainPaddingX: 32, // 4 in MUI spacing
+    mainPaddingBottom: 48, // 6 in MUI spacing
   },
   lg: {
     containerPadding: 40,
     sectionSpacing: 80,
     elementSpacing: 40,
+    mainPaddingTop: 64, // 8 in MUI spacing
+    mainPaddingX: 32, // 4 in MUI spacing
+    mainPaddingBottom: 48, // 6 in MUI spacing
   },
   xl: {
     containerPadding: 48,
     sectionSpacing: 96,
     elementSpacing: 48,
+    mainPaddingTop: 64, // 8 in MUI spacing
+    mainPaddingX: 32, // 4 in MUI spacing
+    mainPaddingBottom: 48, // 6 in MUI spacing
+  },
+};
+
+// Define standard dimensions for components
+const defaultDimensions: { [key in BreakPoint]: Dimensions } = {
+  xs: {
+    header: { height: 64 },
+    profileImage: { width: 220, height: 220 },
+  },
+  sm: {
+    header: { height: 72 },
+    profileImage: { width: 240, height: 240 },
+  },
+  md: {
+    header: { height: 80 },
+    profileImage: { width: 280, height: 280 },
+  },
+  lg: {
+    header: { height: 88 },
+    profileImage: { width: 280, height: 280 },
+  },
+  xl: {
+    header: { height: 96 },
+    profileImage: { width: 300, height: 300 },
   },
 };
 
@@ -225,6 +273,7 @@ export const ResponsiveProvider = ({
       // Dynamic values
       fontSize: defaultFontSizes[currentBreakpoint],
       spacing: defaultSpacing[currentBreakpoint],
+      dimensions: defaultDimensions[currentBreakpoint],
 
       // Screen dimensions
       screenWidth: dimensions.width,
