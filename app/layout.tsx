@@ -4,8 +4,7 @@ import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "./components/Header";
 import Box from "@mui/material/Box";
-import MainContent from "./components/MainContent";
-import PageTransition from "./components/PageTransition";
+import MainContentWrapper from "./components/MainContentWrapper";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,25 +58,23 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <ResponsiveProvider>
-            <PageTransition>
-              <Box
-                component="div"
-                sx={{
-                  width: "100%",
-                  minHeight: "100dvh",
-                  display: "flex",
-                  flexDirection: "column",
-                  overflowX: "hidden",
-                  overflowY: "auto",
-                  position: "relative",
-                  WebkitOverflowScrolling: "touch",
-                  bgcolor: "background.default", // Use theme-aware background color
-                }}
-              >
-                <Header />
-                <MainContent>{children}</MainContent>
-              </Box>
-            </PageTransition>
+            <Box
+              component="div"
+              sx={{
+                width: "100%",
+                minHeight: "100dvh",
+                display: "flex",
+                flexDirection: "column",
+                overflowX: "hidden",
+                overflowY: "auto",
+                position: "relative",
+                WebkitOverflowScrolling: "touch",
+                bgcolor: "background.default",
+              }}
+            >
+              <Header />
+              <MainContentWrapper>{children}</MainContentWrapper>
+            </Box>
           </ResponsiveProvider>
         </ThemeProvider>
       </body>
