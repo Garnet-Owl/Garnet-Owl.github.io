@@ -8,27 +8,9 @@ import React, {
   useMemo,
   useEffect,
 } from "react";
-import {
-  ThemeProvider as MUIThemeProvider,
-  createTheme,
-  alpha,
-} from "@mui/material/styles";
+import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-
-// Define custom colors for both themes
-const darkTheme = {
-  primaryMain: "#6F42C1",
-  secondaryMain: "#7950F2",
-  backgroundMain: "#0A0817",
-  backgroundPaper: "#161130",
-};
-
-const lightTheme = {
-  primaryMain: "#2196f3",
-  secondaryMain: "#1976d2",
-  backgroundMain: "#ffffff",
-  backgroundPaper: "#f5f5f5",
-};
+import { createAppTheme } from "../theme";
 
 type ThemeContextType = {
   toggleTheme: () => void;
@@ -66,116 +48,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Create theme based on current mode
   const theme = useMemo(() => {
-    const colors = isDarkMode ? darkTheme : lightTheme;
-
-    return createTheme({
-      palette: {
-        mode: isDarkMode ? "dark" : "light",
-        primary: {
-          main: colors.primaryMain,
-          light: alpha(colors.primaryMain, 0.8),
-          dark: alpha(colors.primaryMain, 1),
-        },
-        secondary: {
-          main: colors.secondaryMain,
-          light: alpha(colors.secondaryMain, 0.8),
-          dark: alpha(colors.secondaryMain, 1),
-        },
-        background: {
-          default: colors.backgroundMain,
-          paper: colors.backgroundPaper,
-        },
-        text: {
-          primary: isDarkMode ? "#fff" : "rgba(0, 0, 0, 0.87)",
-          secondary: isDarkMode
-            ? "rgba(255, 255, 255, 0.7)"
-            : "rgba(0, 0, 0, 0.6)",
-        },
-      },
-      typography: {
-        fontFamily: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          '"Segoe UI"',
-          "Roboto",
-          '"Helvetica Neue"',
-          "Arial",
-          "sans-serif",
-        ].join(","),
-        h1: {
-          fontWeight: 700,
-          fontSize: "2.5rem",
-          lineHeight: 1.2,
-          "@media (min-width:600px)": {
-            fontSize: "3rem",
-          },
-        },
-        h2: {
-          fontWeight: 600,
-          fontSize: "2rem",
-          lineHeight: 1.3,
-          "@media (min-width:600px)": {
-            fontSize: "2.25rem",
-          },
-        },
-        h3: {
-          fontWeight: 600,
-          fontSize: "1.75rem",
-          lineHeight: 1.4,
-          "@media (min-width:600px)": {
-            fontSize: "1.875rem",
-          },
-        },
-        h4: {
-          fontWeight: 600,
-          fontSize: "1.25rem",
-          lineHeight: 1.4,
-        },
-        h5: {
-          fontWeight: 500,
-          fontSize: "1rem",
-          lineHeight: 1.4,
-        },
-        h6: {
-          fontWeight: 500,
-          fontSize: "0.875rem",
-          lineHeight: 1.4,
-        },
-        body1: {
-          fontSize: "1rem",
-          lineHeight: 1.5,
-        },
-        body2: {
-          fontSize: "0.875rem",
-          lineHeight: 1.5,
-        },
-      },
-      components: {
-        MuiButton: {
-          styleOverrides: {
-            root: {
-              textTransform: "none",
-              borderRadius: 8,
-              padding: "8px 16px",
-            },
-            containedPrimary: {
-              "&:hover": {
-                boxShadow: `0 8px 16px ${alpha(colors.primaryMain, 0.2)}`,
-              },
-            },
-          },
-        },
-        MuiCard: {
-          styleOverrides: {
-            root: {
-              borderRadius: 12,
-              boxShadow: `0 4px 12px ${alpha("#000", 0.05)}`,
-            },
-          },
-        },
-      },
-    });
+    return createAppTheme(isDarkMode ? "dark" : "light");
   }, [isDarkMode]);
 
   const contextValue = useMemo(

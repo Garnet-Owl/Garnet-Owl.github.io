@@ -28,16 +28,8 @@ export default function RootLayout({
         />
       </head>
       <GoogleAnalytics gaId="G-VVW80YL13K" />
-      <body
-        className={inter.className}
-        style={{
-          margin: 0,
-          minHeight: "100dvh",
-          overflowY: "auto",
-          WebkitOverflowScrolling: "touch",
-          position: "relative",
-        }}
-      >
+      <body className={inter.className}>
+
         <ThemeProvider>
           <ResponsiveProvider>
             <Box
