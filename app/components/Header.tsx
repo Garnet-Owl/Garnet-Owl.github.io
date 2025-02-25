@@ -80,9 +80,10 @@ const Header = () => {
               },
               fontSize.h5
             ),
-            background: isDarkMode
-              ? "linear-gradient(45deg, #6F42C1, #7950F2)"
-              : "linear-gradient(45deg, #2196f3, #1976d2)",
+            background: (theme) =>
+              theme.palette.mode === "dark"
+                ? "linear-gradient(45deg, #6F42C1, #7950F2)"
+                : "linear-gradient(45deg, #2196f3, #1976d2)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             letterSpacing: "0.02em",
