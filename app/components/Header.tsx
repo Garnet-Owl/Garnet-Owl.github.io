@@ -54,11 +54,12 @@ const Header = () => {
         left: 0,
         right: 0,
         height: dimensions.header.height,
-        boxShadow: hasScrolled
-          ? theme.palette.mode === "dark"
+        boxShadow: (() => {
+          if (!hasScrolled) return "none";
+          return theme.palette.mode === "dark"
             ? `0 4px 20px -5px ${alpha("#000", 0.4)}`
-            : `0 4px 20px -5px ${alpha("#000", 0.1)}`
-          : "none",
+            : `0 4px 20px -5px ${alpha("#000", 0.1)}`;
+        })(),
       }}
     >
       <Container maxWidth="lg">

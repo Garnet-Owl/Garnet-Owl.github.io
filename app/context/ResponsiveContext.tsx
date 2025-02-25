@@ -42,8 +42,8 @@ interface Dimensions {
 }
 
 interface BackgroundStyles {
-  mainBackground: any; // Using any to accommodate MUI's sx prop
-  backgroundPattern: any; // Using any to accommodate MUI's sx prop
+  mainBackground: unknown; // Using unknown to accommodate MUI's sx prop
+  backgroundPattern: unknown; // Using unknown to accommodate MUI's sx prop
 }
 
 type ResponsiveContextType = {
@@ -272,12 +272,7 @@ export const ResponsiveProvider = ({
   const backgroundStyles = useMemo(() => {
     return {
       mainBackground: {
-        background:
-          theme.palette.mode === "dark"
-            ? `linear-gradient(to bottom, 
-              ${alpha(theme.palette.background.default, 1)} 0%, 
-              ${alpha(theme.palette.background.default, 0.98)} 100%)`
-            : `linear-gradient(to bottom, 
+        background: `linear-gradient(to bottom, 
               ${alpha(theme.palette.background.default, 1)} 0%, 
               ${alpha(theme.palette.background.default, 0.98)} 100%)`,
         flexGrow: 1,

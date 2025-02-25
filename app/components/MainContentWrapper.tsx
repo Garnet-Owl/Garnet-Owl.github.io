@@ -17,8 +17,11 @@ const MainContentWrapper: React.FC<MainContentWrapperProps> = ({
     <Box
       component="main"
       sx={{
-        ...backgroundStyles.mainBackground,
-        "&::before": backgroundStyles.backgroundPattern,
+        ...(backgroundStyles.mainBackground || {}),
+        "&::before": backgroundStyles.backgroundPattern as Record<
+          string,
+          unknown
+        >,
       }}
     >
       {children}

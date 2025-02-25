@@ -13,7 +13,7 @@ interface ProfileImageProps {
 const ProfileImage: React.FC<ProfileImageProps> = ({
   imageUrl = "/images/profile/linkedinprf.jpg",
 }) => {
-  const { dimensions, isMobile } = useResponsive();
+  const { isMobile } = useResponsive();
   const theme = useTheme();
 
   return (
