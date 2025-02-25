@@ -150,6 +150,7 @@ function getComponentOverrides(
           padding: "8px 16px",
           transition: "all 0.3s ease",
           fontWeight: 500,
+          variants: [],
         },
         contained: {
           boxShadow:
