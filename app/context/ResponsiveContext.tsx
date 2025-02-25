@@ -8,6 +8,7 @@ import React, {
   useMemo,
 } from "react";
 import { useMediaQuery, useTheme } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 
 type BreakPoint = "xs" | "sm" | "md" | "lg" | "xl";
 
@@ -40,6 +41,11 @@ interface Dimensions {
   profileImage: { width: number | string; height: number | string };
 }
 
+interface BackgroundStyles {
+  mainBackground: any; // Using any to accommodate MUI's sx prop
+  backgroundPattern: any; // Using any to accommodate MUI's sx prop
+}
+
 type ResponsiveContextType = {
   // Screen size indicators
   isMobile: boolean;
@@ -54,6 +60,9 @@ type ResponsiveContextType = {
   fontSize: FontSizes;
   spacing: Spacing;
   dimensions: Dimensions;
+
+  // Background styles
+  backgroundStyles: BackgroundStyles;
 
   // Screen dimensions
   screenWidth: number;
@@ -259,6 +268,63 @@ export const ResponsiveProvider = ({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Background styles calculation
+  const backgroundStyles = useMemo(() => {
+    return {
+      mainBackground: {
+        background:
+          theme.palette.mode === "dark"
+            ? `linear-gradient(to bottom, 
+              ${alpha(theme.palette.background.default, 1)} 0%, 
+              ${alpha(theme.palette.background.default, 0.98)} 100%)`
+            : `linear-gradient(to bottom, 
+              ${alpha(theme.palette.background.default, 1)} 0%, 
+              ${alpha(theme.palette.background.default, 0.98)} 100%)`,
+        flexGrow: 1,
+        width: "100%",
+        minHeight: "100vh",
+        pt: {
+          xs: `${defaultDimensions.xs.header.height + 16}px`,
+          sm: `${defaultDimensions.sm.header.height + 24}px`,
+          md: `${defaultDimensions.md.header.height + 24}px`,
+          lg: `${defaultDimensions.lg.header.height + 24}px`,
+          xl: `${defaultDimensions.xl.header.height + 24}px`,
+        },
+        pb: 6,
+        position: "relative",
+        zIndex: 1,
+        overflowX: "hidden",
+      },
+      backgroundPattern: {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundImage:
+          theme.palette.mode === "dark"
+            ? `radial-gradient(${alpha(
+                theme.palette.primary.main,
+                0.07
+              )} 1px, transparent 1px)`
+            : `radial-gradient(${alpha(
+                theme.palette.primary.main,
+                0.05
+              )} 1px, transparent 1px)`,
+        backgroundSize: "30px 30px",
+        backgroundPosition: "0 0",
+        opacity: 0.3,
+        zIndex: -1,
+        pointerEvents: "none",
+      },
+    };
+  }, [
+    theme.palette.mode,
+    theme.palette.background.default,
+    theme.palette.primary.main,
+  ]);
+
   const value = useMemo(
     () => ({
       // Screen size indicators
@@ -274,6 +340,9 @@ export const ResponsiveProvider = ({
       fontSize: defaultFontSizes[currentBreakpoint],
       spacing: defaultSpacing[currentBreakpoint],
       dimensions: defaultDimensions[currentBreakpoint],
+
+      // Background styles
+      backgroundStyles,
 
       // Screen dimensions
       screenWidth: dimensions.width,
@@ -295,6 +364,7 @@ export const ResponsiveProvider = ({
       currentBreakpoint,
       dimensions.width,
       dimensions.height,
+      backgroundStyles,
     ]
   );
 
