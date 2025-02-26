@@ -20,9 +20,10 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
     <Box
       sx={{
         position: "relative",
-        width: { xs: 220, sm: 240, md: 280 },
-        height: { xs: 220, sm: 240, md: 280 },
-        borderRadius: "16px",
+        width: { xs: 180, sm: 200, md: 220 },
+        height: { xs: 180, sm: 200, md: 220 },
+        borderRadius: "50%",
+        border: `4px solid ${alpha(theme.palette.background.paper, 0.9)}`,
         overflow: "hidden",
         boxShadow:
           theme.palette.mode === "dark"
@@ -34,10 +35,10 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
              0 0 0 4px ${alpha(theme.palette.background.paper, 0.3)}`,
         mx: isMobile ? "auto" : 0,
         mb: isMobile ? 2 : 0,
-        transform: "perspective(1000px) rotateY(-5deg)",
+        transform: "translateY(-5px)",
         transition: "all 0.5s ease",
         "&:hover": {
-          transform: "perspective(1000px) rotateY(0deg) translateY(-5px)",
+          transform: "translateY(-10px)",
           boxShadow:
             theme.palette.mode === "dark"
               ? `0 24px 50px -12px ${alpha(theme.palette.common.black, 0.6)},
@@ -86,7 +87,7 @@ const ProfileImage: React.FC<ProfileImageProps> = ({
         sizes="(max-width: 600px) 220px, (max-width: 900px) 240px, 280px"
         style={{
           objectFit: "cover",
-          objectPosition: "center",
+          objectPosition: "center top",
         }}
         priority
       />

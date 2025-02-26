@@ -7,13 +7,11 @@ import {
   Box,
   Typography,
   Container,
-  Button,
   Stack,
-  Card,
   Divider,
   useTheme,
+  Paper,
 } from "@mui/material";
-import { GitHub, LinkedIn } from "@mui/icons-material";
 import { useResponsive } from "@/app/context/ResponsiveContext";
 import { alpha } from "@mui/material/styles";
 
@@ -48,25 +46,26 @@ const Hero = () => {
       component="section"
       sx={{
         position: "relative",
-        minHeight: "100vh",
+        minHeight: "40vh", // Reduced from 100vh to 40vh to make it more compact
         display: "flex",
         alignItems: "center",
         bgcolor: "background.default", // Use theme-aware background color
-        py: 6,
+        py: 3, // Reduced padding
         ...heroBackground,
       }}
     >
       <Container maxWidth="lg">
-        <Card
-          elevation={0}
+        <Paper
+          elevation={1}
           className="hero-card"
           sx={{
             bgcolor: alpha(
               theme.palette.background.paper,
               theme.palette.mode === "dark" ? 0.4 : 0.6
             ),
-            borderRadius: 4,
-            p: { xs: 3, sm: 4, md: 5 },
+            borderRadius: 2, // Reduced border radius
+            p: { xs: 2, sm: 3, md: 4 }, // Reduced padding
+            mt: 2, // Added margin top
           }}
         >
           <Box
@@ -74,14 +73,23 @@ const Hero = () => {
               display: "flex",
               flexDirection: isMobile ? "column" : "row",
               alignItems: isMobile ? "center" : "flex-start",
-              gap: { xs: 4, md: 6 },
+              gap: { xs: 5, md: 8 },
               justifyContent: "space-between",
             }}
           >
-            <ProfileImage />
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                p: { xs: 1, sm: 2, md: 3 },
+              }}
+            >
+              <ProfileImage />
+            </Box>
 
             <Stack
-              spacing={4}
+              spacing={3} // Increased spacing slightly to compensate for removed elements
               sx={{
                 width: "100%",
                 maxWidth: isMobile ? "unset" : "md",
@@ -94,7 +102,7 @@ const Hero = () => {
                   variant="h1"
                   className="hero-title"
                   sx={{
-                    fontSize: { xs: "2.25rem", sm: "2.75rem", md: "3.25rem" },
+                    fontSize: { xs: "1.5rem", sm: "1.875rem", md: "2.25rem" }, // Further reduced font size
                   }}
                 >
                   <TypewriterEffect
@@ -107,8 +115,8 @@ const Hero = () => {
                   variant="h2"
                   className="hero-subtitle"
                   sx={{
-                    fontSize: { xs: "1.5rem", sm: "2rem", md: "2.25rem" },
-                    mt: 2,
+                    fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.5rem" }, // Further reduced font size
+                    mt: 1, // Reduced margin top
                     mb: 1,
                   }}
                 >
@@ -132,7 +140,7 @@ const Hero = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "1rem", sm: "1.125rem", md: "1.25rem" },
+                  fontSize: { xs: "0.875rem", sm: "1rem", md: "1.125rem" }, // Reduced font size
                   color: "text.secondary",
                   maxWidth: "650px",
                 }}
@@ -143,57 +151,9 @@ const Hero = () => {
                   delay={5600}
                 />
               </Typography>
-
-              <Stack
-                direction={isMobile ? "column" : "row"}
-                spacing={2}
-                sx={{ alignItems: isMobile ? "center" : "flex-start" }}
-              >
-                <Button
-                  variant="contained"
-                  className="hero-button"
-                  href="#projects"
-                >
-                  View Projects
-                </Button>
-                <Button
-                  variant="outlined"
-                  className="hero-button"
-                  href="#contact"
-                >
-                  Contact Me
-                </Button>
-              </Stack>
-
-              <Stack
-                direction="row"
-                spacing={2}
-                sx={{ justifyContent: isMobile ? "center" : "flex-start" }}
-              >
-                <Button
-                  variant="text"
-                  className="hero-social-button"
-                  startIcon={<GitHub />}
-                  href="https://github.com/Garnet-Owl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </Button>
-                <Button
-                  variant="text"
-                  className="hero-social-button"
-                  startIcon={<LinkedIn />}
-                  href="https://linkedin.com/in/james-wanjiku"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </Button>
-              </Stack>
             </Stack>
           </Box>
-        </Card>
+        </Paper>
       </Container>
     </Box>
   );
