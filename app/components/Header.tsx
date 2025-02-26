@@ -9,6 +9,7 @@ import {
   Box,
   useTheme,
   Container,
+  Button,
 } from "@mui/material";
 import { useTheme as useAppTheme } from "../context/ThemeContext";
 import { useResponsive } from "../context/ResponsiveContext";
@@ -17,13 +18,17 @@ import {
   NightsStay as MoonIcon,
   GitHub,
   LinkedIn,
+  Home as HomeIcon,
 } from "@mui/icons-material";
 import { alpha } from "@mui/material/styles";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { toggleTheme, isDarkMode } = useAppTheme();
   const { fontSize, dimensions } = useResponsive();
   const theme = useTheme();
+  const pathname = usePathname();
 
   const [hasScrolled, setHasScrolled] = useState(false);
 
@@ -70,32 +75,89 @@ const Header = () => {
             minHeight: dimensions.header.height,
           }}
         >
-          {/* Logo/Brand */}
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 700,
-              fontSize: { xs: fontSize.h6, sm: fontSize.h5, md: fontSize.h4 },
-              background:
-                theme.palette.mode === "dark"
-                  ? "linear-gradient(45deg, #6F42C1, #7950F2)"
-                  : "linear-gradient(45deg, #2196f3, #1976d2)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              letterSpacing: "0.02em",
-              transition: "all 0.3s ease",
-              "&:hover": {
-                transform: "translateY(-1px)",
-                filter: "brightness(1.1)",
-              },
-            }}
-          >
-            James Wanjiku
-          </Typography>
+          {/* Logo/Brand with Home Icon */}
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <IconButton
+              component={Link}
+              href="/"
+              aria-label="Home"
+              sx={{
+                color: "text.primary",
+                mr: 1,
+                "&:hover": {
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              <HomeIcon />
+            </IconButton>
+
+            <Typography
+              variant="h5"
+              component={Link}
+              href="/"
+              sx={{
+                fontWeight: 700,
+                fontSize: { xs: fontSize.h6, sm: fontSize.h5, md: fontSize.h4 },
+                background:
+                  theme.palette.mode === "dark"
+                    ? "linear-gradient(45deg, #6F42C1, #7950F2)"
+                    : "linear-gradient(45deg, #2196f3, #1976d2)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                letterSpacing: "0.02em",
+                transition: "all 0.3s ease",
+                textDecoration: "none",
+                "&:hover": {
+                  transform: "translateY(-1px)",
+                  filter: "brightness(1.1)",
+                },
+              }}
+            >
+              James Wanjiku
+            </Typography>
+          </Box>
 
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            {/* Navigation Links */}
+            <Box sx={{ display: "flex", alignItems: "center", mr: 3 }}>
+              <Button
+                component={Link}
+                href="/projects"
+                color="inherit"
+                sx={{
+                  fontWeight: pathname === "/projects" ? 700 : 500,
+                  color:
+                    pathname === "/projects" ? "primary.main" : "text.primary",
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "primary.main",
+                  },
+                }}
+              >
+                Projects
+              </Button>
+
+              <Button
+                component={Link}
+                href="/about"
+                color="inherit"
+                sx={{
+                  fontWeight: pathname === "/about" ? 700 : 500,
+                  color:
+                    pathname === "/about" ? "primary.main" : "text.primary",
+                  "&:hover": {
+                    backgroundColor: "transparent",
+                    color: "primary.main",
+                  },
+                }}
+              >
+                About Me
+              </Button>
+            </Box>
+
             {/* Social Links */}
-            <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 1, mr: 2 }}>
+            <Box sx={{ display: "flex", gap: 1, mr: 2 }}>
               <IconButton
                 href="https://github.com/Garnet-Owl"
                 target="_blank"
