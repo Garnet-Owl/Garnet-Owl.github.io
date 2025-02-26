@@ -26,7 +26,8 @@ import { usePathname } from "next/navigation";
 
 const Header = () => {
   const { toggleTheme, isDarkMode } = useAppTheme();
-  const { fontSize, dimensions } = useResponsive();
+  const { fontSize, dimensions, isMobile, isTablet, isDesktop } =
+    useResponsive();
   const theme = useTheme();
   const pathname = usePathname();
 
@@ -66,7 +67,16 @@ const Header = () => {
         })(),
       }}
     >
-      <Container maxWidth="lg">
+      <Container
+        maxWidth="lg"
+        sx={{
+          px: (() => {
+            if (isMobile) return 0.5;
+            if (isTablet) return 1;
+            return 2;
+          })(),
+        }}
+      >
         <Toolbar
           disableGutters
           sx={{
@@ -75,14 +85,22 @@ const Header = () => {
           }}
         >
           {/* Logo/Brand with Home Icon */}
-          <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              "& .MuiIconButton-root": {
+                padding: isMobile ? "6px" : "8px",
+                mr: isMobile ? 0.5 : 1,
+              },
+            }}
+          >
             <IconButton
               component={Link}
               href="/"
               aria-label="Home"
               sx={{
                 color: "text.primary",
-                mr: 1,
                 "&:hover": {
                   transform: "translateY(-2px)",
                 },
@@ -97,7 +115,12 @@ const Header = () => {
               href="/"
               sx={{
                 fontWeight: 700,
-                fontSize: { xs: fontSize.h6, sm: fontSize.h5, md: fontSize.h4 },
+                fontSize: (() => {
+                  if (isMobile) return "1rem";
+                  if (isTablet) return fontSize.h6;
+                  if (isDesktop) return fontSize.h5;
+                  return fontSize.h4;
+                })(),
                 background:
                   theme.palette.mode === "dark"
                     ? "linear-gradient(45deg, #6F42C1, #7950F2)"
@@ -117,9 +140,26 @@ const Header = () => {
             </Typography>
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: { xs: 0.5, sm: 1 },
+            }}
+          >
             {/* Navigation Links */}
-            <Box sx={{ display: "flex", alignItems: "center", mr: 3 }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                mr: { xs: 1, sm: 2, md: 3 },
+                "& .MuiButton-root": {
+                  px: { xs: 1, sm: 1.5 },
+                  fontSize: { xs: "0.75rem", sm: "inherit" },
+                  minWidth: { xs: "auto", sm: "64px" },
+                },
+              }}
+            >
               <Button
                 component={Link}
                 href="/projects"
@@ -156,7 +196,16 @@ const Header = () => {
             </Box>
 
             {/* Social Links */}
-            <Box sx={{ display: "flex", gap: 1, mr: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: { xs: 0.5, sm: 1 },
+                mr: { xs: 0.5, sm: 1, md: 2 },
+                "& .MuiIconButton-root": {
+                  padding: { xs: "4px", sm: "6px" },
+                },
+              }}
+            >
               <IconButton
                 href="https://github.com/Garnet-Owl"
                 target="_blank"
@@ -196,21 +245,22 @@ const Header = () => {
               sx={{
                 color: "text.primary",
                 transition: "all 0.3s ease",
-                ml: 1,
+                ml: { xs: 0.25, sm: 0.5, md: 1 },
                 bgcolor: alpha(theme.palette.primary.main, 0.08),
                 "&:hover": {
                   transform: "scale(1.1) rotate(5deg)",
                   bgcolor: alpha(theme.palette.primary.main, 0.15),
                 },
-                height: { xs: 36, md: 40 },
-                width: { xs: 36, md: 40 },
+                height: { xs: 32, sm: 36, md: 40 },
+                width: { xs: 32, sm: 36, md: 40 },
+                padding: { xs: "4px", sm: "6px" },
               }}
               aria-label="Toggle theme"
             >
               {isDarkMode ? (
-                <SunIcon sx={{ fontSize: { xs: 20, md: 22 } }} />
+                <SunIcon sx={{ fontSize: { xs: 18, sm: 20, md: 22 } }} />
               ) : (
-                <MoonIcon sx={{ fontSize: { xs: 20, md: 22 } }} />
+                <MoonIcon sx={{ fontSize: { xs: 18, sm: 20, md: 22 } }} />
               )}
             </IconButton>
           </Box>
