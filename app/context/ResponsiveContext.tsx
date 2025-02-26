@@ -42,33 +42,27 @@ interface Dimensions {
 }
 
 interface BackgroundStyles {
-  mainBackground: unknown; // Using unknown to accommodate MUI's sx prop
-  backgroundPattern: unknown; // Using unknown to accommodate MUI's sx prop
+  mainBackground: unknown;
+  backgroundPattern: unknown;
 }
 
 type ResponsiveContextType = {
-  // Screen size indicators
   isMobile: boolean;
   isTablet: boolean;
   isDesktop: boolean;
   isLargeDesktop: boolean;
 
-  // Current breakpoint
   currentBreakpoint: BreakPoint;
 
-  // Dynamic values
   fontSize: FontSizes;
   spacing: Spacing;
   dimensions: Dimensions;
 
-  // Background styles
   backgroundStyles: BackgroundStyles;
 
-  // Screen dimensions
   screenWidth: number;
   screenHeight: number;
 
-  // Utility functions
   getResponsiveValue: <T>(
     values: { [key in BreakPoint]?: T },
     defaultValue: T
@@ -322,28 +316,20 @@ export const ResponsiveProvider = ({
 
   const value = useMemo(
     () => ({
-      // Screen size indicators
       isMobile,
       isTablet,
       isDesktop,
       isLargeDesktop,
 
-      // Current breakpoint
       currentBreakpoint,
-
-      // Dynamic values
       fontSize: defaultFontSizes[currentBreakpoint],
       spacing: defaultSpacing[currentBreakpoint],
       dimensions: defaultDimensions[currentBreakpoint],
-
-      // Background styles
       backgroundStyles,
 
-      // Screen dimensions
       screenWidth: dimensions.width,
       screenHeight: dimensions.height,
 
-      // Utility functions
       getResponsiveValue: <T,>(
         values: { [key in BreakPoint]?: T },
         defaultValue: T

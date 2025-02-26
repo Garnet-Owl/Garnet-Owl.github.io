@@ -46,11 +46,10 @@ const Hero = () => {
       component="section"
       sx={{
         position: "relative",
-        minHeight: "40vh", // Reduced from 100vh to 40vh to make it more compact
+        minHeight: "40vh",
         display: "flex",
         alignItems: "center",
-        bgcolor: "background.default", // Use theme-aware background color
-        py: 3, // Reduced padding
+        bgcolor: "background.default",
         ...heroBackground,
       }}
     >
@@ -63,9 +62,9 @@ const Hero = () => {
               theme.palette.background.paper,
               theme.palette.mode === "dark" ? 0.4 : 0.6
             ),
-            borderRadius: 2, // Reduced border radius
-            p: { xs: 2, sm: 3, md: 4 }, // Reduced padding
-            mt: 2, // Added margin top
+            borderRadius: 2,
+            p: { xs: 2, sm: 3, md: 4 },
+            mt: 2,
           }}
         >
           <Box
@@ -89,7 +88,7 @@ const Hero = () => {
             </Box>
 
             <Stack
-              spacing={3} // Increased spacing slightly to compensate for removed elements
+              spacing={3}
               sx={{
                 width: "100%",
                 maxWidth: isMobile ? "unset" : "md",
@@ -102,7 +101,7 @@ const Hero = () => {
                   variant="h1"
                   className="hero-title"
                   sx={{
-                    fontSize: { xs: "1.5rem", sm: "1.875rem", md: "2.25rem" }, // Further reduced font size
+                    fontSize: { xs: "1.5rem", sm: "1.875rem", md: "2.25rem" },
                   }}
                 >
                   <TypewriterEffect
@@ -115,8 +114,8 @@ const Hero = () => {
                   variant="h2"
                   className="hero-subtitle"
                   sx={{
-                    fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.5rem" }, // Further reduced font size
-                    mt: 1, // Reduced margin top
+                    fontSize: { xs: "1.125rem", sm: "1.25rem", md: "1.5rem" },
+                    mt: 1,
                     mb: 1,
                   }}
                 >
@@ -140,7 +139,7 @@ const Hero = () => {
               <Typography
                 variant="body1"
                 sx={{
-                  fontSize: { xs: "0.875rem", sm: "1rem", md: "1.125rem" }, // Reduced font size
+                  fontSize: { xs: "0.875rem", sm: "1rem", md: "1.125rem" },
                   color: "text.secondary",
                   maxWidth: "650px",
                 }}

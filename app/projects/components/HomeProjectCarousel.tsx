@@ -25,24 +25,30 @@ import { projectsData } from "../data/projects";
 
 interface HomeProjectCarouselProps {
   autoplay?: boolean;
+  onTypewriterDone?: boolean;
 }
 
 export default function HomeProjectCarousel({
   autoplay = true,
+  onTypewriterDone,
 }: Readonly<HomeProjectCarouselProps>) {
   const router = useRouter();
   const theme = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(autoplay);
-  const [visible] = useState(true); // Start as visible immediately
+  const [visible] = useState(true);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Initialize auto-playing state based on prop
+  useEffect(() => {
+    if (onTypewriterDone) {
+      // Optional: Any actions to take when typewriter effect is done
+    }
+  }, [onTypewriterDone]);
+
   useEffect(() => {
     setIsAutoPlaying(autoplay);
   }, [autoplay]);
 
-  // Function to clear auto-play interval
   const clearAutoPlay = () => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
@@ -50,14 +56,12 @@ export default function HomeProjectCarousel({
     }
   };
 
-  // Function to advance to next slide
   const advanceSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
   };
 
-  // Logic to handle auto-playing the carousel continuously
   useEffect(() => {
-    if (!visible || !isAutoPlaying) return;
+    if (!visible || !isAutoPlaying || onTypewriterDone === false) return;
 
     clearAutoPlay();
     autoPlayRef.current = setInterval(advanceSlide, 3000); // Change slide every 3 seconds
@@ -65,7 +69,7 @@ export default function HomeProjectCarousel({
     // Clean up on component unmount
     return clearAutoPlay;
     // projectsData.length is intentionally excluded as it's a constant value
-  }, [isAutoPlaying, visible]);
+  }, [isAutoPlaying, visible, onTypewriterDone]);
 
   const handleNext = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
@@ -155,7 +159,7 @@ export default function HomeProjectCarousel({
             {/* Left and right navigation arrows positioned at the center of image sides */}
             <IconButton
               onClick={(e) => {
-                e.stopPropagation(); // Prevent the card click event
+                e.stopPropagation();
                 handlePrev();
               }}
               size="medium"

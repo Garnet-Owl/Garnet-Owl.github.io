@@ -32,7 +32,6 @@ const Header = () => {
 
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  // Check if page has been scrolled
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);

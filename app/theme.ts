@@ -1,6 +1,5 @@
 import { createTheme, alpha } from "@mui/material/styles";
 
-// Define custom colors for both themes
 export const darkTheme = {
   primaryMain: "#6F42C1", // Deep purple primary
   secondaryMain: "#7950F2", // Lighter purple accent
@@ -19,7 +18,6 @@ export const lightTheme = {
   accent2: "#00C896", // Teal accent
 };
 
-// Common typography settings
 const typography = {
   fontFamily: [
     "Inter",
