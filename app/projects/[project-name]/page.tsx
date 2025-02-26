@@ -19,7 +19,9 @@ interface ProjectPageProps {
 export default async function ProjectPage({
   params,
 }: Readonly<ProjectPageProps>) {
-  const projectName = params["project-name"];
+  // In Next.js 15+, params need to be awaited before accessing properties
+  const paramValues = await params;
+  const projectName = paramValues["project-name"];
 
   // Get project data
   const projectData = projectsData.find((p) => p.slug === projectName) || {
