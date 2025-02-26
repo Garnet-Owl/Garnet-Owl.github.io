@@ -10,9 +10,9 @@ export function generateStaticParams() {
 
 // Define the types for the params
 interface ProjectPageProps {
-  params: {
+  params: Promise<{
     "project-name": string;
-  };
+  }>;
 }
 
 // Server Component
