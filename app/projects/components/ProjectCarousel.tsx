@@ -31,10 +31,9 @@ export default function ProjectCarousel() {
   const router = useRouter();
   const theme = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true); // Start immediately
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Function to clear auto-play interval
   const clearAutoPlay = () => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
@@ -42,21 +41,15 @@ export default function ProjectCarousel() {
     }
   };
 
-  // Function to advance to next slide
   const advanceSlide = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
   };
-
-  // Logic to handle auto-playing the carousel continuously
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     clearAutoPlay();
-    autoPlayRef.current = setInterval(advanceSlide, 3000); // Change slide every 3 seconds
-
-    // Clean up on component unmount
+    autoPlayRef.current = setInterval(advanceSlide, 3000);
     return clearAutoPlay;
-    // projectsData.length is intentionally excluded as it's a constant value
   }, [isAutoPlaying]);
 
   const handleNext = () => {
@@ -166,7 +159,7 @@ export default function ProjectCarousel() {
 
             <IconButton
               onClick={(e) => {
-                e.stopPropagation(); // Prevent the card click event
+                e.stopPropagation();
                 handleNext();
               }}
               size="medium"
