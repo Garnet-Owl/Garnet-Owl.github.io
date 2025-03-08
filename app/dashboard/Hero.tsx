@@ -50,18 +50,14 @@ const Hero = () => {
         display: "flex",
         alignItems: "center",
         bgcolor: "background.default",
-        ...heroBackground,
       }}
     >
       <Container maxWidth="lg">
         <Paper
-          elevation={1}
+          elevation={3}
           className="hero-card"
           sx={{
-            bgcolor: alpha(
-              theme.palette.background.paper,
-              theme.palette.mode === "dark" ? 0.4 : 0.6
-            ),
+            bgcolor: "background.default",
             borderRadius: 2,
             p: { xs: 2, sm: 3, md: 4 },
             mt: 2,
