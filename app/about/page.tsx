@@ -20,25 +20,27 @@ const skillsData = {
     "MySQL",
     "Firebase",
     "RESTful APIs",
+    "GraphQL",
+    "Python",
   ],
-  tools: ["Git", "GitHub", "VS Code", "Docker", "Figma", "JIRA", "AWS"],
+  tools: ["Git", "GitHub", "Bitbucket", "Pycharm", "VS Code", "Docker", "Figma", "JIRA", "Confluence", "GCP", "AWS"],
 };
 
 // Mock data for experience
 const experienceData = [
   {
     role: "Junior Software Engineer",
-    company: "Tech Solutions Inc.",
-    period: "2022 - Present",
+    company: "AAI Labs.",
+    period: "2024 - Present",
     description:
-      "Developing and maintaining web applications using React and Node.js. Collaborating with cross-functional teams to implement features and fix bugs.",
+      "Fullstack development of software applications for clients. Worked on projects using React-Next.js, Node.js, NLP projects, and use PostgreSql.",
   },
   {
-    role: "Software Developer Intern",
+    role: "Network Administrator",
     company: "Innovative Systems",
-    period: "2021 - 2022",
+    period: "2023 - 2024",
     description:
-      "Assisted in the development of a customer portal using React and Firebase. Implemented responsive UI components and integrated with backend APIs.",
+      "Managed and maintained the company's network infrastructure. Provided technical support to employees and clients.",
   },
 ];
 
