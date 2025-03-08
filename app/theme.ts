@@ -90,12 +90,12 @@ export const createAppTheme = (mode: "light" | "dark") => {
       primary: {
         main: colors.primaryMain,
         light: alpha(colors.primaryMain, 0.8),
-        dark: alpha(colors.primaryMain, 1.2),
+        dark: alpha(colors.primaryMain, 1.0),
       },
       secondary: {
         main: colors.secondaryMain,
         light: alpha(colors.secondaryMain, 0.8),
-        dark: alpha(colors.secondaryMain, 1.2),
+        dark: alpha(colors.secondaryMain, 1.0),
       },
       background: {
         default: colors.backgroundMain,
