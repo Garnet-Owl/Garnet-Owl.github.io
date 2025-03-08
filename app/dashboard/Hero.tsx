@@ -19,28 +19,6 @@ const Hero = () => {
   const { isMobile } = useResponsive();
   const theme = useTheme();
 
-  // Background gradient based on theme mode
-  const heroBackground = {
-    backgroundImage:
-      theme.palette.mode === "dark"
-        ? `radial-gradient(circle at top right, ${alpha(
-            "#6F42C1",
-            0.15
-          )}, transparent 60%),
-           radial-gradient(circle at bottom left, ${alpha(
-             "#7950F2",
-             0.1
-           )}, transparent 60%)`
-        : `radial-gradient(circle at top right, ${alpha(
-            "#2196f3",
-            0.08
-          )}, transparent 60%),
-           radial-gradient(circle at bottom left, ${alpha(
-             "#1976d2",
-             0.05
-           )}, transparent 60%)`,
-  };
-
   return (
     <Box
       component="section"
