@@ -25,7 +25,7 @@ const skillsData = {
     "Python",
     "C++",
   ],
-  tools: ["Git", "GitHub", "Bitbucket", "Pycharm", "VS Code", "Docker", "Figma", "JIRA", "Confluence", "GCP", "AWS"],
+  tools: ["Git", "GitHub", "Bitbucket", "Pycharm", "VS Code", "Docker", "Figma", "JIRA", "Confluence", "Azure", "GCP", "AWS"],
 };
 
 // Mock data for experience
