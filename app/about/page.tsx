@@ -18,12 +18,14 @@ const skillsData = {
     "Express",
     "MongoDB",
     "MySQL",
+    "PostgreSQL",
     "Firebase",
     "RESTful APIs",
     "GraphQL",
     "Python",
+    "C++",
   ],
-  tools: ["Git", "GitHub", "Bitbucket", "Pycharm", "VS Code", "Docker", "Figma", "JIRA", "Confluence", "GCP", "AWS"],
+  tools: ["Git", "GitHub", "Bitbucket", "Pycharm", "VS Code", "Docker", "Figma", "JIRA", "Confluence", "Azure", "GCP", "AWS"],
 };
 
 // Mock data for experience
