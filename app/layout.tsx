@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata = {
   title: "James Wanjiku - Software Engineer Portfolio",
   description:
-    "Portfolio of James Wanjiku, a Junior Software Engineer passionate about crafting robust and scalable solutions with modern technologies.",
+    "Portfolio of James Wanjiku, a Software Engineer passionate about crafting robust and scalable solutions with modern technologies.",
   keywords: [
     "Software Engineer",
     "Web Developer",
@@ -30,7 +30,7 @@ export const metadata = {
   openGraph: {
     title: "James Wanjiku - Software Engineer Portfolio",
     description:
-      "Portfolio of James Wanjiku, a Junior Software Engineer passionate about crafting robust and scalable solutions",
+      "Portfolio of James Wanjiku, a Software Engineer passionate about crafting robust and scalable solutions",
     url: "https://garnet-owl.github.io/",
     siteName: "James Wanjiku Portfolio",
     locale: "en_US",
