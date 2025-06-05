@@ -99,7 +99,7 @@ export default function AboutContent({
 
           <Grid item xs={12} md={8}>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              I&apos;m a passionate software engineer specializing in modern web
+              I&apos;m a passionate software engineer specializing in modern
               technologies. With a strong foundation in both frontend and
               backend development, I create scalable, user-friendly applications
               that solve real-world problems.

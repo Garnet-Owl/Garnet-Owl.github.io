@@ -94,7 +94,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text="A Junior Software Engineer."
+                    text="A Software Engineer."
                     speed={70}
                     delay={3300}
                   />
