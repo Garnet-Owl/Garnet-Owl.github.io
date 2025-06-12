@@ -19,7 +19,7 @@ export const projectsData: Project[] = [
     description:
       "This project is a fully functional e-commerce platform with a responsive frontend built using React and a robust backend powered by Node.js. It features user authentication, product browsing, cart management, and secure checkout process. The platform integrates with popular payment gateways and provides an admin dashboard for managing products and orders.",
     imageUrl:
-      "https://cdn.shopify.com/s/files/1/0070/7032/articles/ecommerce_20platforms_3c2ab809-41ff-4185-9fef-52df34de95e4.png?v=1730388944&originalWidth=1848&originalHeight=782&width=1200",
+      "https://m.media-amazon.com/images/G/31/amazonservices/Blog/eCommerce_Platform.png",
     technologies: [
       "React",
       "Node.js",
