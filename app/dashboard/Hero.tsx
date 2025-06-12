@@ -79,7 +79,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text="Hi. My name is James Wanjiku."
+                    text="Welcome, my name is James Wanjiku."
                     speed={70}
                   />
                 </Typography>
@@ -94,7 +94,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text="A Software Engineer."
+                    text="Currently I work as researcher at AAI-Labs."
                     speed={70}
                     delay={3300}
                   />
