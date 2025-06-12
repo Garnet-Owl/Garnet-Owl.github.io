@@ -94,7 +94,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text="Currently I work as researcher at AAI-Labs."
+                    text="Currently, I work as researcher at AAI-Labs."
                     speed={70}
                     delay={3300}
                   />
