@@ -187,5 +187,5 @@ function getComponentOverrides(
   };
 }
 
-const defaultTheme = createAppTheme("light");
+const defaultTheme = createAppTheme("dark");
 export default defaultTheme;
