@@ -113,7 +113,7 @@ The site is automatically deployed to GitHub Pages through GitHub Actions when c
 
 ## License
 
-This project is open-source and available under the MIT License.
+This Repo is open-source and available under the MIT License.
 
 ## Contact
 
