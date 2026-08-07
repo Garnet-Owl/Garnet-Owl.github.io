@@ -47,6 +47,12 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: darkTheme.backgroundMain,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,8 +65,6 @@ export default function RootLayout({
           name="google-site-verification"
           content="WxFqIjvlT8IrfaIGo5sdwK3hZcdrXMjcLrJPEnyivAc"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content={darkTheme.backgroundMain} />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <GoogleAnalytics gaId="G-VVW80YL13K" />

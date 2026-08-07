@@ -143,7 +143,7 @@ const Header = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              gap: { xs: 0.5, sm: 1 },
+              gap: { xs: 0.25, sm: 1 },
             }}
           >
             {/* Navigation Links */}
@@ -151,10 +151,10 @@ const Header = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                gap: { xs: 1, sm: 1.5 },
-                mr: { xs: 1, sm: 2, md: 3 },
+                gap: { xs: 0.5, sm: 1.5 },
+                mr: { xs: 0.5, sm: 2, md: 3 },
                 "& .MuiButton-root": {
-                  px: { xs: 1, sm: 1.5 },
+                  px: { xs: 0.75, sm: 1.5 },
                   fontSize: { xs: "0.75rem", sm: "inherit" },
                   minWidth: { xs: "auto", sm: "64px" },
                 },
@@ -213,10 +213,10 @@ const Header = () => {
             <Box
               sx={{
                 display: "flex",
-                gap: { xs: 0.5, sm: 1 },
-                mr: { xs: 0.5, sm: 1, md: 2 },
+                gap: { xs: 0.25, sm: 1 },
+                mr: { xs: 0.25, sm: 1, md: 2 },
                 "& .MuiIconButton-root": {
-                  padding: { xs: "4px", sm: "6px" },
+                  padding: { xs: "3px", sm: "6px" },
                 },
               }}
             >
