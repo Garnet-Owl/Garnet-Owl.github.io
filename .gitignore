@@ -42,3 +42,9 @@ next-env.d.ts
 
 # Pycharm files
 .idea/
+
+# Local AI agent instructions and planning notes, not for publication
+CLAUDE.md
+AGENTS.md
+MASTER_PLAN.md
+.claude/
