@@ -18,6 +18,7 @@ export const skillGroups: SkillGroup[] = [
     category: "Engineering",
     skills: [
       "Python",
+      "TypeScript",
       "FastAPI",
       "PyTorch",
       "Next.js",

@@ -1,0 +1,33 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Personal portfolio site, built with Next.js and TypeScript">
+  <style>
+    .bg { fill: #eef1f6; }
+    .grid { stroke: #d6dcea; }
+    .accent { stroke: #2b5fa8; fill: none; }
+    .dot { fill: #2b5fa8; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #10151f; }
+      .grid { stroke: #232c3d; }
+      .accent { stroke: #7fb2f0; }
+      .dot { fill: #7fb2f0; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <rect x="400" y="290" width="400" height="260" rx="10" />
+    <line x1="400" y1="340" x2="800" y2="340" />
+  </g>
+  <circle class="dot" cx="430" cy="315" r="6" />
+  <circle class="dot" cx="455" cy="315" r="6" />
+  <circle class="dot" cx="480" cy="315" r="6" />
+  <g class="accent" stroke-width="3">
+    <line x1="440" y1="390" x2="680" y2="390" />
+    <line x1="440" y1="430" x2="620" y2="430" />
+    <line x1="440" y1="470" x2="700" y2="470" />
+  </g>
+</svg>

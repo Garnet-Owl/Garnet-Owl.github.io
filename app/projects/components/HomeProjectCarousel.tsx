@@ -72,6 +72,9 @@ export default function HomeProjectCarousel({
     (_, i) => projects[(startIndex + i) % projects.length]
   );
 
+  const pageCount = Math.ceil(projects.length / HIGHLIGHT_COUNT);
+  const currentPage = Math.floor(startIndex / HIGHLIGHT_COUNT);
+
   const handlePrev = () => {
     setStartIndex(
       (prev) =>
@@ -202,7 +205,38 @@ export default function HomeProjectCarousel({
         </Grid>
         </Box>
 
-        <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 1, mt: 2 }}>
+          {Array.from({ length: pageCount }, (_, page) => (
+            <Box
+              key={page}
+              component="button"
+              onClick={() => setStartIndex(page * HIGHLIGHT_COUNT)}
+              aria-label={`Go to project group ${page + 1} of ${pageCount}`}
+              aria-current={page === currentPage}
+              sx={{
+                border: "none",
+                p: 0,
+                cursor: "pointer",
+                width: page === currentPage ? 22 : 8,
+                height: 8,
+                borderRadius: 4,
+                bgcolor:
+                  page === currentPage
+                    ? "primary.main"
+                    : alpha(theme.palette.text.primary, 0.2),
+                transition: "all 0.25s ease",
+                "&:hover": {
+                  bgcolor:
+                    page === currentPage
+                      ? "primary.main"
+                      : alpha(theme.palette.text.primary, 0.35),
+                },
+              }}
+            />
+          ))}
+        </Box>
+
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
           <Button
             component={Link}
             href="/projects"

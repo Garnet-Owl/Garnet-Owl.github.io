@@ -187,4 +187,24 @@ export const projects: Project[] = [
       "Uses each pair's historical activity record to shape future recommendations.",
     ],
   },
+  {
+    slug: "portfolio-site",
+    title: "This Portfolio Site",
+    shortDescription:
+      "You're looking at it right now. A statically exported Next.js site with a typed content model, so updates are content-file edits, not code changes.",
+    description:
+      "The site you're currently on. Built with Next.js and TypeScript, exported fully static and served from GitHub Pages with no server or database. Every project, skill, and bio paragraph on this site comes from a typed content file rather than being hardcoded into a component, so adding or editing a project is a data change, not a rebuild of the page.",
+    imageUrl: "/images/projects/portfolio-site.svg",
+    technologies: ["TypeScript", "Next.js", "MUI"],
+    period: "2026 - present",
+    role: "Creator",
+    context: "personal",
+    status: "live",
+    featured: false,
+    highlights: [
+      "You're using it right now, no need for a separate live link.",
+      "Fully static export with a typed content model: projects, skills, and bio all live in data files, not components.",
+    ],
+    githubUrl: "https://github.com/Garnet-Owl/Garnet-Owl.github.io",
+  },
 ];
