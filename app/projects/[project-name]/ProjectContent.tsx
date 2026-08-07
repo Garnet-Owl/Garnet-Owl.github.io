@@ -9,10 +9,8 @@ import {
   Button,
   Chip,
   Stack,
-  useTheme,
 } from "@mui/material";
 import Image from "next/image";
-import { alpha } from "@mui/material/styles";
 import { ArrowBack, GitHub, Public } from "@mui/icons-material";
 import Link from "next/link";
 import { Project } from "../../content/types";
@@ -25,8 +23,6 @@ interface ProjectContentProps {
 export default function ProjectContent({
   project,
 }: Readonly<ProjectContentProps>) {
-  const theme = useTheme();
-
   return (
     <Container maxWidth="lg" sx={{ pt: 4, pb: 8 }}>
       <Button
@@ -41,10 +37,6 @@ export default function ProjectContent({
       <Paper
         elevation={1}
         sx={{
-          bgcolor: alpha(
-            theme.palette.background.paper,
-            theme.palette.mode === "dark" ? 0.9 : 0.6
-          ),
           borderRadius: 2,
           p: { xs: 2, sm: 3, md: 4 },
           mb: 4,

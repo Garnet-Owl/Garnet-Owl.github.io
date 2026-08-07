@@ -1,22 +1,15 @@
 "use client";
 
 import React from "react";
-import { Container, Typography, Paper, useTheme } from "@mui/material";
-import { alpha } from "@mui/material/styles";
+import { Container, Typography, Paper } from "@mui/material";
 import ProjectsGrid from "./ProjectsGrid";
 
 export default function ProjectsPageContent() {
-  const theme = useTheme();
-
   return (
     <Container maxWidth="lg" sx={{ pt: 4, pb: 8 }}>
       <Paper
         elevation={1}
         sx={{
-          bgcolor: alpha(
-            theme.palette.background.paper,
-            theme.palette.mode === "dark" ? 0.9 : 0.6
-          ),
           borderRadius: 2,
           p: { xs: 2, sm: 3, md: 4 },
           mb: 4,

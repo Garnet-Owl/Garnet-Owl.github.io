@@ -141,6 +141,23 @@ function getComponentOverrides(
         },
       },
     },
+    MuiPaper: {
+      styleOverrides: {
+        // Shared "translucent section card" look used across the site
+        // (About sections, project pages, the home highlight strip). Centralized
+        // here so every <Paper elevation={1}> picks it up without repeating the
+        // same bgcolor logic in each component.
+        root: ({ ownerState }: { ownerState: { elevation?: number } }) =>
+          ownerState.elevation === 1
+            ? {
+                backgroundColor: alpha(
+                  colors.backgroundPaper,
+                  mode === "dark" ? 0.9 : 0.6
+                ),
+              }
+            : {},
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

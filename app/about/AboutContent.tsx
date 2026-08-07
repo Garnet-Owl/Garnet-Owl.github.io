@@ -25,10 +25,6 @@ export default function AboutContent() {
   const theme = useTheme();
 
   const sectionPaperSx = {
-    bgcolor: alpha(
-      theme.palette.background.paper,
-      theme.palette.mode === "dark" ? 0.9 : 0.6
-    ),
     borderRadius: 2,
     p: { xs: 2, sm: 3, md: 4 },
     mb: 4,
