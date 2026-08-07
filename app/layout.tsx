@@ -14,24 +14,32 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const DEFAULT_TITLE = "James Wanjiku - AI/ML Engineer";
+const DEFAULT_DESCRIPTION =
+  "James Wanjiku builds and ships AI systems that run in production: voice agents, computer vision, and LLM pipelines. AI/ML Engineer and Team Lead at AAI Labs.";
+
 export const metadata = {
-  title: "James Wanjiku - Software Engineer Portfolio",
-  description:
-    "Portfolio of James Wanjiku, a Software Engineer passionate about crafting robust and scalable solutions with modern technologies.",
+  metadataBase: new URL("https://garnet-owl.github.io"),
+  title: {
+    default: DEFAULT_TITLE,
+    template: "%s | James Wanjiku",
+  },
+  description: DEFAULT_DESCRIPTION,
   keywords: [
-    "Software Engineer",
-    "Web Developer",
-    "Full Stack Developer",
-    "React",
+    "AI/ML Engineer",
+    "Machine Learning",
+    "Voice AI",
+    "LLM",
+    "Computer Vision",
+    "Python",
     "Next.js",
     "TypeScript",
     "Portfolio",
   ],
   authors: [{ name: "James Wanjiku" }],
   openGraph: {
-    title: "James Wanjiku - Software Engineer Portfolio",
-    description:
-      "Portfolio of James Wanjiku, a Software Engineer passionate about crafting robust and scalable solutions",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
     url: "https://garnet-owl.github.io/",
     siteName: "James Wanjiku Portfolio",
     locale: "en_US",
@@ -59,6 +67,25 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <ResponsiveProvider>
+            <Box
+              component="a"
+              href="#main-content"
+              sx={{
+                position: "absolute",
+                left: 8,
+                top: -48,
+                zIndex: 2000,
+                px: 2,
+                py: 1,
+                bgcolor: "primary.main",
+                color: "primary.contrastText",
+                borderRadius: 1,
+                transition: "top 0.15s ease",
+                "&:focus": { top: 8 },
+              }}
+            >
+              Skip to main content
+            </Box>
             <Box
               component="div"
               sx={{

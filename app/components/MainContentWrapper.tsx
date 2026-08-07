@@ -16,6 +16,7 @@ const MainContentWrapper: React.FC<MainContentWrapperProps> = ({
   return (
     <Box
       component="main"
+      id="main-content"
       sx={{
         ...(backgroundStyles.mainBackground || {}),
         "&::before": backgroundStyles.backgroundPattern as Record<

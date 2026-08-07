@@ -29,6 +29,26 @@ const NOT_FOUND_PROJECT: Project = {
   highlights: [],
 };
 
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const paramValues = await params;
+  const projectName = paramValues["project-name"];
+  const project = projects.find((p) => p.slug === projectName);
+
+  if (!project) {
+    return { title: "Project Not Found" };
+  }
+
+  return {
+    title: project.title,
+    description: project.shortDescription,
+    openGraph: {
+      title: `${project.title} | James Wanjiku`,
+      description: project.shortDescription,
+      images: [{ url: project.imageUrl }],
+    },
+  };
+}
+
 export default async function ProjectPage({
   params,
 }: Readonly<ProjectPageProps>) {

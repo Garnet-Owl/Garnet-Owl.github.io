@@ -9,9 +9,11 @@ import {
   Container,
   Stack,
   Divider,
+  Button,
   useTheme,
   Paper,
 } from "@mui/material";
+import { Email as EmailIcon, Description as ResumeIcon } from "@mui/icons-material";
 import { useResponsive } from "@/app/context/ResponsiveContext";
 import { alpha } from "@mui/material/styles";
 import { profile } from "@/app/content/profile";
@@ -125,6 +127,32 @@ const Hero = () => {
                   delay={5600}
                 />
               </Typography>
+
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
+                sx={{ justifyContent: isMobile ? "center" : "flex-start" }}
+              >
+                {profile.contact.email && (
+                  <Button
+                    variant="contained"
+                    startIcon={<EmailIcon />}
+                    href={`mailto:${profile.contact.email}`}
+                  >
+                    Get in Touch
+                  </Button>
+                )}
+                <Button
+                  variant="outlined"
+                  startIcon={<ResumeIcon />}
+                  href="/resume.pdf"
+                  download="James-Wanjiku-Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download Resume
+                </Button>
+              </Stack>
             </Stack>
           </Box>
         </Paper>

@@ -18,11 +18,13 @@ import {
   NightsStay as MoonIcon,
   GitHub,
   LinkedIn,
+  Email,
   Home as HomeIcon,
 } from "@mui/icons-material";
 import { alpha } from "@mui/material/styles";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { profile } from "../content/profile";
 
 const Header = () => {
   const { toggleTheme, isDarkMode } = useAppTheme();
@@ -218,38 +220,61 @@ const Header = () => {
                 },
               }}
             >
-              <IconButton
-                href="https://github.com/Garnet-Owl"
-                target="_blank"
-                rel="noopener noreferrer"
-                size="small"
-                sx={{
-                  color: theme.palette.mode === "dark" ? "#ffffff" : "#181717",
-                  bgcolor: alpha(theme.palette.text.primary, 0.06),
-                  "&:hover": {
-                    bgcolor: alpha(theme.palette.text.primary, 0.14),
-                    transform: "translateY(-2px)",
-                  },
-                }}
-              >
-                <GitHub fontSize="small" />
-              </IconButton>
-              <IconButton
-                href="https://linkedin.com/in/james-wanjiku"
-                target="_blank"
-                rel="noopener noreferrer"
-                size="small"
-                sx={{
-                  color: "#0A66C2",
-                  bgcolor: alpha("#0A66C2", 0.08),
-                  "&:hover": {
-                    bgcolor: alpha("#0A66C2", 0.18),
-                    transform: "translateY(-2px)",
-                  },
-                }}
-              >
-                <LinkedIn fontSize="small" />
-              </IconButton>
+              {profile.contact.email && (
+                <IconButton
+                  href={`mailto:${profile.contact.email}`}
+                  size="small"
+                  aria-label="Email James"
+                  sx={{
+                    color: "primary.main",
+                    bgcolor: alpha(theme.palette.primary.main, 0.1),
+                    "&:hover": {
+                      bgcolor: alpha(theme.palette.primary.main, 0.2),
+                      transform: "translateY(-2px)",
+                    },
+                  }}
+                >
+                  <Email fontSize="small" />
+                </IconButton>
+              )}
+              {profile.contact.github && (
+                <IconButton
+                  href={profile.contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="small"
+                  aria-label="GitHub"
+                  sx={{
+                    color: theme.palette.mode === "dark" ? "#ffffff" : "#181717",
+                    bgcolor: alpha(theme.palette.text.primary, 0.06),
+                    "&:hover": {
+                      bgcolor: alpha(theme.palette.text.primary, 0.14),
+                      transform: "translateY(-2px)",
+                    },
+                  }}
+                >
+                  <GitHub fontSize="small" />
+                </IconButton>
+              )}
+              {profile.contact.linkedin && (
+                <IconButton
+                  href={profile.contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="small"
+                  aria-label="LinkedIn"
+                  sx={{
+                    color: "#0A66C2",
+                    bgcolor: alpha("#0A66C2", 0.08),
+                    "&:hover": {
+                      bgcolor: alpha("#0A66C2", 0.18),
+                      transform: "translateY(-2px)",
+                    },
+                  }}
+                >
+                  <LinkedIn fontSize="small" />
+                </IconButton>
+              )}
             </Box>
 
             {/* Theme Toggle */}

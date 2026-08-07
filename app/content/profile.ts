@@ -16,5 +16,7 @@ export const profile: Profile = {
   contact: {
     github: "https://github.com/Garnet-Owl",
     linkedin: "https://linkedin.com/in/james-wanjiku",
+    // confirmed
+    email: "james544wanjiku@gmail.com",
   },
 };
