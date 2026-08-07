@@ -46,6 +46,7 @@ export default function HomeProjectCarousel({
   }, [onTypewriterDone]);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- syncs internal play state when the autoplay prop changes
     setIsAutoPlaying(autoplay);
   }, [autoplay]);
 

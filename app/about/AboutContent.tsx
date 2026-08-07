@@ -66,7 +66,7 @@ export default function AboutContent({
         </Typography>
 
         <Grid container spacing={4}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Box
               sx={{
                 display: "flex",
@@ -97,7 +97,7 @@ export default function AboutContent({
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={8}>
+          <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="body1" sx={{ mb: 2 }}>
               I&apos;m a passionate software engineer specializing in modern
               technologies. With a strong foundation in both frontend and
@@ -139,33 +139,33 @@ export default function AboutContent({
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>
               Frontend
             </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ gap: 1 }}>
+            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
               {skills.frontend.map((skill) => (
                 <Chip key={skill} label={skill} variant="outlined" />
               ))}
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>
               Backend
             </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ gap: 1 }}>
+            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
               {skills.backend.map((skill) => (
                 <Chip key={skill} label={skill} variant="outlined" />
               ))}
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>
               Tools & Platforms
             </Typography>
-            <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ gap: 1 }}>
+            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
               {skills.tools.map((skill) => (
                 <Chip key={skill} label={skill} variant="outlined" />
               ))}
