@@ -23,6 +23,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time mount flag to avoid SSR/client hydration mismatch
     setMounted(true);
   }, []);
 
@@ -35,6 +36,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   });
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time mount flag to avoid SSR/client hydration mismatch
     setMounted(true);
   }, []);
 

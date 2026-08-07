@@ -97,8 +97,7 @@ export default function ProjectContent({
         <Stack
           direction="row"
           spacing={1}
-          flexWrap="wrap"
-          sx={{ mb: 3, gap: 1 }}
+          sx={{ mb: 3, gap: 1, flexWrap: "wrap" }}
         >
           {project.technologies.map((tech) => (
             <Chip key={tech} label={tech} size="small" />
