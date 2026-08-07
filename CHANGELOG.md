@@ -6,7 +6,7 @@
   Phase 2), each with its own generated image, a verified external link where
   one exists, and an affiliation label (AAI Labs, Open source, Personal
   initiative, Research). The projects page moved from a carousel to a full grid.
-- Rebuilt the About page and Hero from James's real, 
+- Rebuilt the About page and Hero from James's real,
   career record instead of mock data (Phase 3, now fully done).
 - Fixed a theme crash on a legacy localStorage value and switched new visitors'
   default theme to light.
