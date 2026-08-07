@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { useResponsive } from "@/app/context/ResponsiveContext";
 import { alpha } from "@mui/material/styles";
+import { profile } from "@/app/content/profile";
 
 const Hero = () => {
   const { isMobile } = useResponsive();
@@ -79,7 +80,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text="Welcome, my name is James Wanjiku."
+                    text={`Welcome, my name is ${profile.name}.`}
                     speed={70}
                   />
                 </Typography>
@@ -94,7 +95,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text="Currently, I work as researcher at AAI-Labs."
+                    text={profile.headline}
                     speed={70}
                     delay={3300}
                   />
@@ -119,7 +120,7 @@ const Hero = () => {
                 }}
               >
                 <TypewriterEffect
-                  text="Passionate about building exceptional software that makes a difference, I craft robust and scalable solutions with modern technologies."
+                  text={profile.summary}
                   speed={40}
                   delay={5600}
                 />

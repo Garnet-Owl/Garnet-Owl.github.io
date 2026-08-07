@@ -1,0 +1,29 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Double-financing detection prototype">
+  <style>
+    .bg { fill: #f7eeee; }
+    .grid { stroke: #ecd2d2; }
+    .accent { stroke: #b3382c; fill: none; }
+    .dot { fill: #b3382c; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #241313; }
+      .grid { stroke: #3d2020; }
+      .accent { stroke: #ec8c80; }
+      .dot { fill: #ec8c80; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <circle cx="530" cy="400" r="80" />
+    <circle cx="670" cy="400" r="80" />
+  </g>
+  <g class="accent" stroke-width="4" stroke-linecap="round">
+    <line x1="575" y1="355" x2="625" y2="445" />
+    <line x1="625" y1="355" x2="575" y2="445" />
+  </g>
+</svg>

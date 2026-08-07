@@ -15,17 +15,11 @@ import Image from "next/image";
 import { alpha } from "@mui/material/styles";
 import { ArrowBack, GitHub, Public } from "@mui/icons-material";
 import Link from "next/link";
+import { Project } from "../../content/types";
+import { getProjectAffiliation } from "../../content/projects";
 
 interface ProjectContentProps {
-  project: {
-    title: string;
-    description: string;
-    technologies: string[];
-    imageUrl: string;
-    githubUrl: string;
-    liveUrl: string;
-    slug: string;
-  };
+  project: Project;
 }
 
 export default function ProjectContent({
@@ -62,11 +56,19 @@ export default function ProjectContent({
           gutterBottom
           sx={{
             fontWeight: 700,
-            mb: 3,
+            mb: 1,
           }}
         >
           {project.title}
         </Typography>
+
+        <Chip
+          label={getProjectAffiliation(project)}
+          size="small"
+          variant="outlined"
+          color={project.context === "employer" ? "primary" : "default"}
+          sx={{ mb: 3 }}
+        />
 
         <Box
           sx={{

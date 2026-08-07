@@ -21,7 +21,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { alpha } from "@mui/material/styles";
-import { projectsData } from "../data/projects";
+import { projects } from "../../content/projects";
 
 interface HomeProjectCarouselProps {
   autoplay?: boolean;
@@ -58,7 +58,7 @@ export default function HomeProjectCarousel({
   };
 
   const advanceSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % projects.length);
   };
 
   useEffect(() => {
@@ -69,20 +69,20 @@ export default function HomeProjectCarousel({
 
     // Clean up on component unmount
     return clearAutoPlay;
-    // projectsData.length is intentionally excluded as it's a constant value
+    // projects.length is intentionally excluded as it's a constant value
   }, [isAutoPlaying, visible, onTypewriterDone]);
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % projects.length);
   };
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1
+      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
     );
   };
 
-  const activeProject = projectsData[activeIndex];
+  const activeProject = projects[activeIndex];
 
   if (!visible) return null;
 

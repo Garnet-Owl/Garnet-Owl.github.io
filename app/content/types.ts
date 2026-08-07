@@ -52,6 +52,8 @@ export interface ContactLinks {
 export interface Profile {
   name: string;
   headline: string;
+  summary: string;
+  bio: string[];
   location?: string;
   contact: ContactLinks;
 }

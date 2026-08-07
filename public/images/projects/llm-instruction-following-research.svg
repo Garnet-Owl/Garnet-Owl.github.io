@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Reliable instruction-following in LLM multi-turn workflows, research paper">
+  <style>
+    .bg { fill: #eeeff6; }
+    .grid { stroke: #d6d9ec; }
+    .accent { stroke: #3c4bb0; fill: none; }
+    .dot { fill: #3c4bb0; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #131627; }
+      .grid { stroke: #242a4a; }
+      .accent { stroke: #8b98ec; }
+      .dot { fill: #8b98ec; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <rect x="420" y="330" width="120" height="70" rx="10" />
+    <rect x="660" y="250" width="120" height="70" rx="10" />
+    <rect x="660" y="410" width="120" height="70" rx="10" />
+    <line x1="540" y1="365" x2="660" y2="285" />
+    <line x1="540" y1="365" x2="660" y2="445" />
+  </g>
+  <circle class="dot" cx="480" cy="365" r="7" />
+  <circle class="dot" cx="720" cy="285" r="7" />
+  <circle class="dot" cx="720" cy="445" r="7" />
+</svg>

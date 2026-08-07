@@ -1,0 +1,32 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Funding application similarity detection tool">
+  <style>
+    .bg { fill: #f7f3e9; }
+    .grid { stroke: #ecdfbf; }
+    .accent { stroke: #a8791a; fill: none; }
+    .dot { fill: #a8791a; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #241f10; }
+      .grid { stroke: #3d341c; }
+      .accent { stroke: #e0bc63; }
+      .dot { fill: #e0bc63; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <rect x="440" y="280" width="140" height="200" rx="8" />
+    <line x1="465" y1="320" x2="555" y2="320" />
+    <line x1="465" y1="360" x2="555" y2="360" />
+    <line x1="465" y1="400" x2="525" y2="400" />
+    <rect x="620" y="320" width="140" height="200" rx="8" />
+    <line x1="645" y1="360" x2="735" y2="360" />
+    <line x1="645" y1="400" x2="735" y2="400" />
+    <line x1="645" y1="440" x2="705" y2="440" />
+  </g>
+  <circle class="dot" cx="600" cy="400" r="10" />
+</svg>
