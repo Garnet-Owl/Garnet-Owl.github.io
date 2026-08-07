@@ -24,7 +24,7 @@ import { alpha } from "@mui/material/styles";
 import { projects } from "../../content/projects";
 
 const HIGHLIGHT_COUNT = 3;
-const ROTATE_INTERVAL_MS = 15000;
+const ROTATE_INTERVAL_MS = 10000;
 
 interface HomeProjectCarouselProps {
   autoplay?: boolean;

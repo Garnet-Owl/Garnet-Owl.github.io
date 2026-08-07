@@ -80,7 +80,7 @@ const Hero = () => {
                   }}
                 >
                   <TypewriterEffect
-                    text={`Welcome, my name is ${profile.name}.`}
+                    text={`Hi there, my name is ${profile.name}.`}
                     speed={70}
                   />
                 </Typography>

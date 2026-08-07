@@ -165,11 +165,17 @@ const Header = () => {
                 href="/projects"
                 color="inherit"
                 sx={{
-                  fontWeight: pathname === "/projects" ? 700 : 500,
+                  fontWeight: pathname === "/projects" ? 700 : 600,
+                  fontSize: { xs: "0.85rem", sm: "0.95rem" },
+                  borderRadius: 2,
                   color:
                     pathname === "/projects" ? "primary.main" : "text.primary",
+                  bgcolor:
+                    pathname === "/projects"
+                      ? alpha(theme.palette.primary.main, 0.12)
+                      : "transparent",
                   "&:hover": {
-                    backgroundColor: "transparent",
+                    bgcolor: alpha(theme.palette.primary.main, 0.12),
                     color: "primary.main",
                   },
                 }}
@@ -182,11 +188,17 @@ const Header = () => {
                 href="/about"
                 color="inherit"
                 sx={{
-                  fontWeight: pathname === "/about" ? 700 : 500,
+                  fontWeight: pathname === "/about" ? 700 : 600,
+                  fontSize: { xs: "0.85rem", sm: "0.95rem" },
+                  borderRadius: 2,
                   color:
                     pathname === "/about" ? "primary.main" : "text.primary",
+                  bgcolor:
+                    pathname === "/about"
+                      ? alpha(theme.palette.primary.main, 0.12)
+                      : "transparent",
                   "&:hover": {
-                    backgroundColor: "transparent",
+                    bgcolor: alpha(theme.palette.primary.main, 0.12),
                     color: "primary.main",
                   },
                 }}
@@ -212,9 +224,10 @@ const Header = () => {
                 rel="noopener noreferrer"
                 size="small"
                 sx={{
-                  color: "text.secondary",
+                  color: theme.palette.mode === "dark" ? "#ffffff" : "#181717",
+                  bgcolor: alpha(theme.palette.text.primary, 0.06),
                   "&:hover": {
-                    color: "text.primary",
+                    bgcolor: alpha(theme.palette.text.primary, 0.14),
                     transform: "translateY(-2px)",
                   },
                 }}
@@ -227,9 +240,10 @@ const Header = () => {
                 rel="noopener noreferrer"
                 size="small"
                 sx={{
-                  color: "text.secondary",
+                  color: "#0A66C2",
+                  bgcolor: alpha("#0A66C2", 0.08),
                   "&:hover": {
-                    color: "text.primary",
+                    bgcolor: alpha("#0A66C2", 0.18),
                     transform: "translateY(-2px)",
                   },
                 }}
