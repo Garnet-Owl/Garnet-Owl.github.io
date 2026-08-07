@@ -21,7 +21,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { alpha } from "@mui/material/styles";
-import { projectsData } from "../data/projects";
+import { projects } from "../../content/projects";
 
 interface HomeProjectCarouselProps {
   autoplay?: boolean;
@@ -58,7 +58,7 @@ export default function HomeProjectCarousel({
   };
 
   const advanceSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % projects.length);
   };
 
   useEffect(() => {
@@ -69,20 +69,20 @@ export default function HomeProjectCarousel({
 
     // Clean up on component unmount
     return clearAutoPlay;
-    // projectsData.length is intentionally excluded as it's a constant value
+    // projects.length is intentionally excluded as it's a constant value
   }, [isAutoPlaying, visible, onTypewriterDone]);
 
   const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
+    setActiveIndex((prevIndex) => (prevIndex + 1) % projects.length);
   };
 
   const handlePrev = () => {
     setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1
+      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
     );
   };
 
-  const activeProject = projectsData[activeIndex];
+  const activeProject = projects[activeIndex];
 
   if (!visible) return null;
 
@@ -116,21 +116,33 @@ export default function HomeProjectCarousel({
           <Typography variant="h6" sx={{ fontWeight: 600 }}>
             Featured Project: {activeProject.title}
           </Typography>
-          <IconButton
-            onClick={() => setIsAutoPlaying((prev) => !prev)}
-            size="small"
-            sx={{
-              color: isAutoPlaying ? "primary.main" : "text.secondary",
-              "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.1) },
-            }}
-            aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
-          >
-            {isAutoPlaying ? (
-              <PauseIcon fontSize="small" />
-            ) : (
-              <PlayIcon fontSize="small" />
-            )}
-          </IconButton>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Button
+              component={Link}
+              href="/projects"
+              variant="outlined"
+              size="small"
+              endIcon={<ArrowForwardIcon />}
+              sx={{ textTransform: "none" }}
+            >
+              All Projects
+            </Button>
+            <IconButton
+              onClick={() => setIsAutoPlaying((prev) => !prev)}
+              size="small"
+              sx={{
+                color: isAutoPlaying ? "primary.main" : "text.secondary",
+                "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.1) },
+              }}
+              aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+            >
+              {isAutoPlaying ? (
+                <PauseIcon fontSize="small" />
+              ) : (
+                <PlayIcon fontSize="small" />
+              )}
+            </IconButton>
+          </Box>
         </Box>
 
         <Card
@@ -228,25 +240,6 @@ export default function HomeProjectCarousel({
             </Box>
           </Box>
         </Card>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            px: 1,
-          }}
-        >
-          <Button
-            component={Link}
-            href="/projects"
-            size="small"
-            endIcon={<ArrowForwardIcon />}
-            sx={{ textTransform: "none" }}
-          >
-            All Projects
-          </Button>
-        </Box>
       </Paper>
     </Box>
   );

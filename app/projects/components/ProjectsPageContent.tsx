@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Container, Typography, Box, Paper, useTheme } from "@mui/material";
+import { Container, Typography, Paper, useTheme } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import ProjectCarousel from "./ProjectCarousel";
+import ProjectsGrid from "./ProjectsGrid";
 
 export default function ProjectsPageContent() {
   const theme = useTheme();
@@ -41,10 +41,7 @@ export default function ProjectsPageContent() {
         </Typography>
       </Paper>
 
-      {/* Project carousel */}
-      <Box sx={{ mt: 4, display: "flex", justifyContent: "center" }}>
-        <ProjectCarousel />
-      </Box>
+      <ProjectsGrid />
     </Container>
   );
 }

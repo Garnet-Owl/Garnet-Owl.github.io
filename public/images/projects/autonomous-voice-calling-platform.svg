@@ -1,0 +1,33 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Autonomous B2B voice calling platform">
+  <style>
+    .bg { fill: #eef4f5; }
+    .grid { stroke: #cfe0e2; }
+    .accent { stroke: #0f8a8a; fill: none; }
+    .dot { fill: #0f8a8a; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #10201f; }
+      .grid { stroke: #1d3a38; }
+      .accent { stroke: #4fd1c5; }
+      .dot { fill: #4fd1c5; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="4" stroke-linecap="round">
+    <path d="M 460 300 q 60 -60 120 0" />
+    <path d="M 420 260 q 100 -100 200 0" />
+    <path d="M 380 220 q 140 -140 280 0" />
+    <path d="M 500 340 l 0 60 q 0 30 30 30 l 40 0 q 30 0 30 -30 l 0 -60 q 0 -30 -30 -30 l -40 0 q -30 0 -30 30 z" />
+  </g>
+  <circle class="dot" cx="600" cy="470" r="6" />
+  <g class="accent" stroke-width="3">
+    <path d="M 700 560 h 340" />
+    <path d="M 700 600 h 260" />
+    <path d="M 700 640 h 300" />
+  </g>
+</svg>

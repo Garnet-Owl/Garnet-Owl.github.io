@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="5G drone detection and georeferencing">
+  <style>
+    .bg { fill: #eef5ee; }
+    .grid { stroke: #d0e3d0; }
+    .accent { stroke: #1e8a4c; fill: none; }
+    .dot { fill: #1e8a4c; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #10201a; }
+      .grid { stroke: #1d3a2c; }
+      .accent { stroke: #5fd68f; }
+      .dot { fill: #5fd68f; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <circle cx="600" cy="400" r="60" />
+    <circle cx="600" cy="400" r="120" />
+    <circle cx="600" cy="400" r="180" />
+  </g>
+  <g class="accent" stroke-width="4" stroke-linecap="round">
+    <line x1="600" y1="340" x2="520" y2="270" />
+    <line x1="600" y1="340" x2="680" y2="270" />
+    <line x1="600" y1="460" x2="520" y2="530" />
+    <line x1="600" y1="460" x2="680" y2="530" />
+  </g>
+  <circle class="dot" cx="520" cy="270" r="10" />
+  <circle class="dot" cx="680" cy="270" r="10" />
+  <circle class="dot" cx="520" cy="530" r="10" />
+  <circle class="dot" cx="680" cy="530" r="10" />
+  <circle class="dot" cx="600" cy="400" r="8" />
+</svg>

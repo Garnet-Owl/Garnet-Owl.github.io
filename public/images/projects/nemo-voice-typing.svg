@@ -1,0 +1,28 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nemo Voice Typing, offline dictation tray app">
+  <style>
+    .bg { fill: #f1eef7; }
+    .grid { stroke: #ddd5ec; }
+    .accent { stroke: #6a3fb5; fill: none; }
+    .dot { fill: #6a3fb5; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #1a1526; }
+      .grid { stroke: #2e2540; }
+      .accent { stroke: #b79bf0; }
+      .dot { fill: #b79bf0; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="4" stroke-linecap="round">
+    <rect x="560" y="300" width="80" height="140" rx="40" />
+    <path d="M 520 400 a 80 80 0 0 0 160 0" />
+    <line x1="600" y1="480" x2="600" y2="520" />
+    <line x1="560" y1="520" x2="640" y2="520" />
+  </g>
+  <line class="accent" stroke-width="3" x1="700" y1="410" x2="900" y2="410" stroke-linecap="round" />
+</svg>

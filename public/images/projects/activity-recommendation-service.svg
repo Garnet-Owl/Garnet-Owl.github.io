@@ -1,0 +1,30 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Activity recommendation service">
+  <style>
+    .bg { fill: #f8eef3; }
+    .grid { stroke: #edd3e1; }
+    .accent { stroke: #b13c78; fill: none; }
+    .dot { fill: #b13c78; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #241019; }
+      .grid { stroke: #3d1f2c; }
+      .accent { stroke: #ec8ec0; }
+      .dot { fill: #ec8ec0; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <rect x="440" y="300" width="90" height="90" rx="12" />
+    <rect x="555" y="300" width="90" height="90" rx="12" />
+    <rect x="670" y="300" width="90" height="90" rx="12" />
+    <rect x="440" y="410" width="90" height="90" rx="12" />
+  </g>
+  <circle class="dot" cx="600" cy="345" r="10" />
+  <circle class="dot" cx="715" cy="345" r="10" />
+  <path class="accent" stroke-width="3" d="M 600 300 l 30 -40 l 30 40" fill="none" />
+</svg>

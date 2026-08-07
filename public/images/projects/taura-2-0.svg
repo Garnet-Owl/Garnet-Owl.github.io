@@ -1,0 +1,32 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Taura 2.0, Kikuyu-English machine translation">
+  <style>
+    .bg { fill: #f6f0ea; }
+    .grid { stroke: #e6d7c8; }
+    .accent { stroke: #b5651d; fill: none; }
+    .dot { fill: #b5651d; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #241a10; }
+      .grid { stroke: #3d2c1c; }
+      .accent { stroke: #e8a662; }
+      .dot { fill: #e8a662; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="400" y1="0" x2="400" y2="800" />
+    <line x1="800" y1="0" x2="800" y2="800" />
+  </g>
+  <g class="accent" stroke-width="3">
+    <rect x="380" y="300" width="220" height="140" rx="16" />
+    <rect x="600" y="380" width="220" height="140" rx="16" />
+  </g>
+  <g class="accent" stroke-width="4" stroke-linecap="round">
+    <path d="M 610 370 l -30 30 l 30 30" fill="none" />
+  </g>
+  <circle class="dot" cx="440" cy="370" r="8" />
+  <circle class="dot" cx="480" cy="370" r="8" />
+  <circle class="dot" cx="720" cy="450" r="8" />
+  <circle class="dot" cx="760" cy="450" r="8" />
+</svg>
