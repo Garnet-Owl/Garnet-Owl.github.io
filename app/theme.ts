@@ -5,7 +5,7 @@ export const darkTheme = {
   primaryMain: "#58A6FF", // GitHub Dark accent blue, ~7.5:1 against the background
   secondaryMain: "#39C5CF", // Cyan accent, ~9:1 against the background
   backgroundMain: "#0D1117", // GitHub Dark canvas
-  backgroundPaper: "#161B22", // GitHub Dark elevated surface
+  backgroundPaper: "#2A3341", // Lifted well above the canvas (~1.5:1) so cards and panels read as distinct surfaces
   accent1: "#FF5E5B", // Soft coral accent
   accent2: "#00C896", // Teal accent
 };

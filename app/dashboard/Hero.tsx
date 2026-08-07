@@ -36,7 +36,7 @@ const Hero = () => {
           elevation={3}
           className="hero-card"
           sx={{
-            bgcolor: "background.default",
+            bgcolor: "background.paper",
             borderRadius: 2,
             p: { xs: 2, sm: 3, md: 4 },
             mt: 2,

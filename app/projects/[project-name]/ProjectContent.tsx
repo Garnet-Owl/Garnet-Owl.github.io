@@ -43,7 +43,7 @@ export default function ProjectContent({
         sx={{
           bgcolor: alpha(
             theme.palette.background.paper,
-            theme.palette.mode === "dark" ? 0.4 : 0.6
+            theme.palette.mode === "dark" ? 0.9 : 0.6
           ),
           borderRadius: 2,
           p: { xs: 2, sm: 3, md: 4 },
