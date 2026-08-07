@@ -116,21 +116,33 @@ export default function HomeProjectCarousel({
           <Typography variant="h6" sx={{ fontWeight: 600 }}>
             Featured Project: {activeProject.title}
           </Typography>
-          <IconButton
-            onClick={() => setIsAutoPlaying((prev) => !prev)}
-            size="small"
-            sx={{
-              color: isAutoPlaying ? "primary.main" : "text.secondary",
-              "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.1) },
-            }}
-            aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
-          >
-            {isAutoPlaying ? (
-              <PauseIcon fontSize="small" />
-            ) : (
-              <PlayIcon fontSize="small" />
-            )}
-          </IconButton>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Button
+              component={Link}
+              href="/projects"
+              variant="outlined"
+              size="small"
+              endIcon={<ArrowForwardIcon />}
+              sx={{ textTransform: "none" }}
+            >
+              All Projects
+            </Button>
+            <IconButton
+              onClick={() => setIsAutoPlaying((prev) => !prev)}
+              size="small"
+              sx={{
+                color: isAutoPlaying ? "primary.main" : "text.secondary",
+                "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.1) },
+              }}
+              aria-label={isAutoPlaying ? "Pause slideshow" : "Play slideshow"}
+            >
+              {isAutoPlaying ? (
+                <PauseIcon fontSize="small" />
+              ) : (
+                <PlayIcon fontSize="small" />
+              )}
+            </IconButton>
+          </Box>
         </Box>
 
         <Card
@@ -228,26 +240,6 @@ export default function HomeProjectCarousel({
             </Box>
           </Box>
         </Card>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            px: 1,
-          }}
-        >
-          <Button
-            component={Link}
-            href="/projects"
-            variant="outlined"
-            size="small"
-            endIcon={<ArrowForwardIcon />}
-            sx={{ textTransform: "none" }}
-          >
-            All Projects
-          </Button>
-        </Box>
       </Paper>
     </Box>
   );
