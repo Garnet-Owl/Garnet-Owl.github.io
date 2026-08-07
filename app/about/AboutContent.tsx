@@ -14,45 +14,28 @@ import {
   Grid,
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
+import { profile } from "@/app/content/profile";
+import { experience } from "@/app/content/experience";
+import { skillGroups } from "@/app/content/skills";
+import { education } from "@/app/content/education";
+import { publications } from "@/app/content/publications";
 
-interface SkillsData {
-  frontend: string[];
-  backend: string[];
-  tools: string[];
-}
-
-interface ExperienceItem {
-  role: string;
-  company: string;
-  period: string;
-  description: string;
-}
-
-interface AboutContentProps {
-  readonly skills: SkillsData;
-  readonly experience: ExperienceItem[];
-}
-
-export default function AboutContent({
-  skills,
-  experience,
-}: AboutContentProps) {
+export default function AboutContent() {
   const theme = useTheme();
+
+  const sectionPaperSx = {
+    bgcolor: alpha(
+      theme.palette.background.paper,
+      theme.palette.mode === "dark" ? 0.4 : 0.6
+    ),
+    borderRadius: 2,
+    p: { xs: 2, sm: 3, md: 4 },
+    mb: 4,
+  };
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Paper
-        elevation={1}
-        sx={{
-          bgcolor: alpha(
-            theme.palette.background.paper,
-            theme.palette.mode === "dark" ? 0.4 : 0.6
-          ),
-          borderRadius: 2,
-          p: { xs: 2, sm: 3, md: 4 },
-          mb: 4,
-        }}
-      >
+      <Paper elevation={1} sx={sectionPaperSx}>
         <Typography
           variant="h4"
           component="h1"
@@ -76,7 +59,7 @@ export default function AboutContent({
             >
               <Avatar
                 src="/images/profile/linkedinprf.jpg"
-                alt="James Wanjiku"
+                alt={profile.name}
                 sx={{
                   width: { xs: 150, sm: 200 },
                   height: { xs: 150, sm: 200 },
@@ -85,116 +68,61 @@ export default function AboutContent({
                 }}
               />
               <Typography variant="h5" sx={{ fontWeight: 600, mb: 1 }}>
-                James Wanjiku
+                {profile.name}
               </Typography>
               <Typography
                 variant="subtitle1"
                 color="text.secondary"
-                sx={{ mb: 2 }}
+                sx={{ mb: 2, textAlign: "center" }}
               >
-                Junior Software Engineer
+                {profile.headline}
               </Typography>
             </Box>
           </Grid>
 
           <Grid size={{ xs: 12, md: 8 }}>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              I&apos;m a passionate software engineer specializing in modern
-              technologies. With a strong foundation in both frontend and
-              backend development, I create scalable, user-friendly applications
-              that solve real-world problems.
-            </Typography>
-
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              My journey in software development began with a curiosity about
-              how digital products work behind the scenes. This curiosity
-              evolved into a passion for creating elegant solutions that enhance
-              user experiences and drive business value.
-            </Typography>
-
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              I&apos;m constantly learning and expanding my skills to stay
-              current with emerging technologies and best practices in the
-              rapidly evolving tech landscape.
-            </Typography>
+            {profile.bio.map((paragraph) => (
+              <Typography key={paragraph.slice(0, 40)} variant="body1" sx={{ mb: 2 }}>
+                {paragraph}
+              </Typography>
+            ))}
           </Grid>
         </Grid>
       </Paper>
 
       {/* Skills Section */}
-      <Paper
-        elevation={1}
-        sx={{
-          bgcolor: alpha(
-            theme.palette.background.paper,
-            theme.palette.mode === "dark" ? 0.4 : 0.6
-          ),
-          borderRadius: 2,
-          p: { xs: 2, sm: 3, md: 4 },
-          mb: 4,
-        }}
-      >
+      <Paper elevation={1} sx={sectionPaperSx}>
         <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 3 }}>
           Skills & Technologies
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              Frontend
-            </Typography>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
-              {skills.frontend.map((skill) => (
-                <Chip key={skill} label={skill} variant="outlined" />
-              ))}
-            </Stack>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              Backend
-            </Typography>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
-              {skills.backend.map((skill) => (
-                <Chip key={skill} label={skill} variant="outlined" />
-              ))}
-            </Stack>
-          </Grid>
-
-          <Grid size={{ xs: 12, md: 4 }}>
-            <Typography variant="h6" sx={{ mb: 2 }}>
-              Tools & Platforms
-            </Typography>
-            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", gap: 1 }}>
-              {skills.tools.map((skill) => (
-                <Chip key={skill} label={skill} variant="outlined" />
-              ))}
-            </Stack>
-          </Grid>
+          {skillGroups.map((group) => (
+            <Grid key={group.category} size={{ xs: 12, md: 4 }}>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                {group.category}
+              </Typography>
+              <Stack direction="row" sx={{ flexWrap: "wrap", gap: 1 }}>
+                {group.skills.map((skill) => (
+                  <Chip key={skill} label={skill} variant="outlined" />
+                ))}
+              </Stack>
+            </Grid>
+          ))}
         </Grid>
       </Paper>
 
       {/* Experience Section */}
-      <Paper
-        elevation={1}
-        sx={{
-          bgcolor: alpha(
-            theme.palette.background.paper,
-            theme.palette.mode === "dark" ? 0.4 : 0.6
-          ),
-          borderRadius: 2,
-          p: { xs: 2, sm: 3, md: 4 },
-        }}
-      >
+      <Paper elevation={1} sx={sectionPaperSx}>
         <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 3 }}>
           Professional Experience
         </Typography>
 
         <Box>
-          {experience.map((item) => (
+          {experience.map((item, index) => (
             <Box
               key={`${item.company}-${item.role}`}
-              sx={{ mb: item !== experience[experience.length - 1] ? 4 : 0 }}
+              sx={{ mb: index !== experience.length - 1 ? 4 : 0 }}
             >
               <Typography variant="h6" sx={{ fontWeight: 600 }}>
                 {item.role}
@@ -203,28 +131,161 @@ export default function AboutContent({
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: 1.5,
                   mt: 0.5,
                   mb: 1,
                 }}
               >
-                <Typography variant="subtitle1" color="primary">
+                <Typography
+                  variant="subtitle1"
+                  color="primary"
+                  sx={{ whiteSpace: "nowrap" }}
+                >
                   {item.company}
                 </Typography>
-                <Typography variant="subtitle2" color="text.secondary">
+
+                <Box
+                  sx={{
+                    flex: 1,
+                    borderBottom: `1px dotted ${alpha(
+                      theme.palette.text.secondary,
+                      0.4
+                    )}`,
+                    mb: "0.3em",
+                  }}
+                />
+
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  sx={{ whiteSpace: "nowrap" }}
+                >
                   {item.period}
                 </Typography>
               </Box>
 
               <Typography variant="body2">{item.description}</Typography>
 
-              {item !== experience[experience.length - 1] && (
-                <Divider sx={{ mt: 3 }} />
-              )}
+              {index !== experience.length - 1 && <Divider sx={{ mt: 3 }} />}
             </Box>
           ))}
         </Box>
       </Paper>
+
+      {/* Education Section */}
+      <Paper elevation={1} sx={sectionPaperSx}>
+        <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 3 }}>
+          Education
+        </Typography>
+
+        <Box>
+          {education.map((item, index) => (
+            <Box
+              key={`${item.institution}-${item.credential}`}
+              sx={{ mb: index !== education.length - 1 ? 3 : 0 }}
+            >
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                {item.institution}
+              </Typography>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: 1.5,
+                  mt: 0.5,
+                }}
+              >
+                <Typography
+                  variant="subtitle1"
+                  color="primary"
+                  sx={{ whiteSpace: "nowrap" }}
+                >
+                  {item.credential}
+                </Typography>
+
+                <Box
+                  sx={{
+                    flex: 1,
+                    borderBottom: `1px dotted ${alpha(
+                      theme.palette.text.secondary,
+                      0.4
+                    )}`,
+                    mb: "0.3em",
+                  }}
+                />
+
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  sx={{ whiteSpace: "nowrap" }}
+                >
+                  {item.period}
+                </Typography>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+      </Paper>
+
+      {/* Publications Section */}
+      {publications.length > 0 && (
+        <Paper elevation={1} sx={{ ...sectionPaperSx, mb: 0 }}>
+          <Typography variant="h5" component="h2" sx={{ fontWeight: 600, mb: 3 }}>
+            Publications
+          </Typography>
+
+          <Box>
+            {publications.map((item, index) => (
+              <Box
+                key={item.title}
+                sx={{ mb: index !== publications.length - 1 ? 3 : 0 }}
+              >
+                <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                  {item.title}
+                </Typography>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    gap: 1.5,
+                    mt: 0.5,
+                  }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    color="primary"
+                    sx={{ whiteSpace: "nowrap" }}
+                  >
+                    {item.venue}
+                  </Typography>
+
+                  <Box
+                    sx={{
+                      flex: 1,
+                      borderBottom: `1px dotted ${alpha(
+                        theme.palette.text.secondary,
+                        0.4
+                      )}`,
+                      mb: "0.3em",
+                    }}
+                  />
+
+                  <Typography
+                    variant="subtitle2"
+                    color="text.secondary"
+                    sx={{ whiteSpace: "nowrap" }}
+                  >
+                    {item.date}
+                  </Typography>
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Paper>
+      )}
     </Container>
   );
 }
