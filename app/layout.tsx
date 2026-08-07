@@ -5,6 +5,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Header from "./components/Header";
 import Box from "@mui/material/Box";
 import MainContentWrapper from "./components/MainContentWrapper";
+import { darkTheme } from "./theme";
 import "./globals.css";
 
 const inter = Inter({
@@ -51,7 +52,7 @@ export default function RootLayout({
           content="WxFqIjvlT8IrfaIGo5sdwK3hZcdrXMjcLrJPEnyivAc"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0A0817" />
+        <meta name="theme-color" content={darkTheme.backgroundMain} />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <GoogleAnalytics gaId="G-VVW80YL13K" />

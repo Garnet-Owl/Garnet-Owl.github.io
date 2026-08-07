@@ -1,10 +1,11 @@
 import { createTheme, alpha } from "@mui/material/styles";
 
 export const darkTheme = {
-  primaryMain: "#6F42C1", // Deep purple primary
-  secondaryMain: "#7950F2", // Lighter purple accent
-  backgroundMain: "#0A0817", // Very dark purple-black
-  backgroundPaper: "#161130", // Slightly lighter dark purple
+  // GitHub Dark-inspired: no purple, blue/cyan accents, ~7-10:1 contrast against the background
+  primaryMain: "#58A6FF", // GitHub Dark accent blue, ~7.5:1 against the background
+  secondaryMain: "#39C5CF", // Cyan accent, ~9:1 against the background
+  backgroundMain: "#0D1117", // GitHub Dark canvas
+  backgroundPaper: "#161B22", // GitHub Dark elevated surface
   accent1: "#FF5E5B", // Soft coral accent
   accent2: "#00C896", // Teal accent
 };
@@ -12,8 +13,8 @@ export const darkTheme = {
 export const lightTheme = {
   primaryMain: "#2196f3", // Blue primary
   secondaryMain: "#1976d2", // Darker blue accent
-  backgroundMain: "#f3f4f6", // Light gray background (updated)
-  backgroundPaper: "#ffffff", // White paper
+  backgroundMain: "#eceef1", // Soft neutral gray, less glare than pure light gray
+  backgroundPaper: "#f7f8fa", // Off-white paper, cuts glare while staying light
   accent1: "#FF5E5B", // Soft coral accent
   accent2: "#00C896", // Teal accent
 };
@@ -102,9 +103,9 @@ export const createAppTheme = (mode: "light" | "dark") => {
         paper: colors.backgroundPaper,
       },
       text: {
-        primary: mode === "dark" ? "#fff" : "rgba(0, 0, 0, 0.87)",
+        primary: mode === "dark" ? "#E6EDF3" : "rgba(0, 0, 0, 0.87)",
         secondary:
-          mode === "dark" ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.6)",
+          mode === "dark" ? "rgba(230, 237, 243, 0.7)" : "rgba(0, 0, 0, 0.6)",
       },
       error: { main: "#f44336" },
       warning: { main: "#ff9800" },

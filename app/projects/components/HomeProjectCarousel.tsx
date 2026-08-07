@@ -17,6 +17,8 @@ import {
 } from "@mui/material";
 import {
   ArrowForward as ArrowForwardIcon,
+  ChevronLeft as ChevronLeftIcon,
+  ChevronRight as ChevronRightIcon,
   Pause as PauseIcon,
   PlayArrow as PlayIcon,
 } from "@mui/icons-material";
@@ -70,6 +72,18 @@ export default function HomeProjectCarousel({
     (_, i) => projects[(startIndex + i) % projects.length]
   );
 
+  const handlePrev = () => {
+    setStartIndex(
+      (prev) =>
+        ((prev - HIGHLIGHT_COUNT) % projects.length + projects.length) %
+        projects.length
+    );
+  };
+
+  const handleNext = () => {
+    setStartIndex((prev) => (prev + HIGHLIGHT_COUNT) % projects.length);
+  };
+
   return (
     <Box sx={{ width: "100%", position: "relative", mt: 3, mb: 4 }}>
       <Paper
@@ -115,6 +129,41 @@ export default function HomeProjectCarousel({
           </IconButton>
         </Box>
 
+        <Box sx={{ position: "relative", px: { xs: 4, sm: 5 } }}>
+          <IconButton
+            onClick={handlePrev}
+            aria-label="Previous projects"
+            sx={{
+              position: "absolute",
+              left: { xs: -8, sm: -18 },
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2,
+              bgcolor: "background.paper",
+              boxShadow: 2,
+              "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.12) },
+            }}
+          >
+            <ChevronLeftIcon />
+          </IconButton>
+
+          <IconButton
+            onClick={handleNext}
+            aria-label="Next projects"
+            sx={{
+              position: "absolute",
+              right: { xs: -8, sm: -18 },
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 2,
+              bgcolor: "background.paper",
+              boxShadow: 2,
+              "&:hover": { bgcolor: alpha(theme.palette.primary.main, 0.12) },
+            }}
+          >
+            <ChevronRightIcon />
+          </IconButton>
+
         <Grid container spacing={2}>
           {highlighted.map((project) => (
             <Grid key={project.slug} size={{ xs: 12, sm: 4 }}>
@@ -155,6 +204,7 @@ export default function HomeProjectCarousel({
             </Grid>
           ))}
         </Grid>
+        </Box>
 
         <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
           <Button

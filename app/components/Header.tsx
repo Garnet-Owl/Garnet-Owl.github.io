@@ -42,8 +42,7 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Get background color based on theme mode
-  const bgColor = isDarkMode ? "#0A0817" : "#f3f4f6";
+  const bgColor = theme.palette.background.default;
 
   return (
     <AppBar
@@ -82,6 +81,7 @@ const Header = () => {
           sx={{
             justifyContent: "space-between",
             minHeight: dimensions.header.height,
+            pt: { xs: 0.5, sm: 0.75 },
           }}
         >
           {/* Logo/Brand with Home Icon */}
@@ -121,10 +121,7 @@ const Header = () => {
                   if (isDesktop) return fontSize.h5;
                   return fontSize.h4;
                 })(),
-                background:
-                  theme.palette.mode === "dark"
-                    ? "linear-gradient(45deg, #6F42C1, #7950F2)"
-                    : "linear-gradient(45deg, #2196f3, #1976d2)",
+                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 letterSpacing: "0.02em",
@@ -152,6 +149,7 @@ const Header = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
+                gap: { xs: 1, sm: 1.5 },
                 mr: { xs: 1, sm: 2, md: 3 },
                 "& .MuiButton-root": {
                   px: { xs: 1, sm: 1.5 },
@@ -170,12 +168,13 @@ const Header = () => {
                   borderRadius: 2,
                   color:
                     pathname === "/projects" ? "primary.main" : "text.primary",
-                  bgcolor:
-                    pathname === "/projects"
-                      ? alpha(theme.palette.primary.main, 0.12)
-                      : "transparent",
+                  bgcolor: alpha(
+                    theme.palette.primary.main,
+                    pathname === "/projects" ? 0.2 : 0.12
+                  ),
+                  boxShadow: `0 1px 4px ${alpha("#000", theme.palette.mode === "dark" ? 0.4 : 0.12)}`,
                   "&:hover": {
-                    bgcolor: alpha(theme.palette.primary.main, 0.12),
+                    bgcolor: alpha(theme.palette.primary.main, 0.24),
                     color: "primary.main",
                   },
                 }}
@@ -193,12 +192,13 @@ const Header = () => {
                   borderRadius: 2,
                   color:
                     pathname === "/about" ? "primary.main" : "text.primary",
-                  bgcolor:
-                    pathname === "/about"
-                      ? alpha(theme.palette.primary.main, 0.12)
-                      : "transparent",
+                  bgcolor: alpha(
+                    theme.palette.primary.main,
+                    pathname === "/about" ? 0.2 : 0.12
+                  ),
+                  boxShadow: `0 1px 4px ${alpha("#000", theme.palette.mode === "dark" ? 0.4 : 0.12)}`,
                   "&:hover": {
-                    bgcolor: alpha(theme.palette.primary.main, 0.12),
+                    bgcolor: alpha(theme.palette.primary.main, 0.24),
                     color: "primary.main",
                   },
                 }}
