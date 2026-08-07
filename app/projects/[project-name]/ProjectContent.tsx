@@ -135,7 +135,7 @@ export default function ProjectContent({
               target="_blank"
               rel="noopener noreferrer"
             >
-              Live Demo
+              Learn More
             </Button>
           )}
         </Stack>

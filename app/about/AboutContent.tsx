@@ -12,6 +12,7 @@ import {
   useTheme,
   Stack,
   Grid,
+  Link as MuiLink,
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { profile } from "@/app/content/profile";
@@ -186,7 +187,19 @@ export default function AboutContent() {
               sx={{ mb: index !== education.length - 1 ? 3 : 0 }}
             >
               <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                {item.institution}
+                {item.url ? (
+                  <MuiLink
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    color="inherit"
+                    underline="hover"
+                  >
+                    {item.institution}
+                  </MuiLink>
+                ) : (
+                  item.institution
+                )}
               </Typography>
 
               <Box
@@ -243,7 +256,19 @@ export default function AboutContent() {
                 sx={{ mb: index !== publications.length - 1 ? 3 : 0 }}
               >
                 <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                  {item.title}
+                  {item.url ? (
+                    <MuiLink
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      color="inherit"
+                      underline="hover"
+                    >
+                      {item.title}
+                    </MuiLink>
+                  ) : (
+                    item.title
+                  )}
                 </Typography>
 
                 <Box

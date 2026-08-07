@@ -34,6 +34,7 @@ export const projects: Project[] = [
       "Reads caller sentiment in real time and uses reinforcement learning to improve conversion over time.",
       "Managed concurrency testing, system investigation, and delivery coordination as project lead.",
     ],
+    liveUrl: "https://www.aai-labs.com/en/cases/export",
   },
   {
     slug: "5g-drone-detection-and-georeferencing",
@@ -61,6 +62,7 @@ export const projects: Project[] = [
       "Posts tiered restricted-zone alerts back to the drone platform.",
       "Supports offline UAV localization and navigation without a live GPS link.",
     ],
+    liveUrl: "https://www.aai-labs.com/en/cases/drones",
   },
   {
     slug: "taura-2-0",
@@ -123,6 +125,8 @@ export const projects: Project[] = [
       "Runs a main agent and validator in parallel, injecting corrections when a response drifts.",
       "Accepted for publication at ICIST 2026, Kaunas.",
     ],
+    liveUrl:
+      "https://www.aai-labs.com/en/research/reliable-instruction-following-llm-multi-turn-workflows",
   },
   {
     slug: "funding-application-similarity-detection",
@@ -142,6 +146,7 @@ export const projects: Project[] = [
       "Compares applications across structure, wording, and stylistic features to group linked submissions.",
       "Detects duplicate and near-duplicate report sections across separate documents.",
     ],
+    liveUrl: "https://www.aai-labs.com/en/cases/plagiarism",
   },
   {
     slug: "double-financing-detection-prototype",
@@ -161,6 +166,7 @@ export const projects: Project[] = [
       "Flags projects requesting funding twice for the same items across separate systems.",
       "Automates a reconciliation process that previously relied on manual cross-checking.",
     ],
+    liveUrl: "https://www.aai-labs.com/en/cases/fundin",
   },
   {
     slug: "activity-recommendation-service",

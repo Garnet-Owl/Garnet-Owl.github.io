@@ -101,7 +101,7 @@ export default function ProjectsGrid() {
                     rel="noopener noreferrer"
                     size="small"
                     color="primary"
-                    aria-label={`${project.title} live site`}
+                    aria-label={`${project.title}, learn more`}
                   >
                     <PublicIcon fontSize="small" />
                   </IconButton>

@@ -29,6 +29,7 @@ export interface Education {
   institution: string;
   credential: string;
   period: string;
+  url?: string;
 }
 
 export interface Publication {

@@ -240,6 +240,7 @@ export default function HomeProjectCarousel({
           <Button
             component={Link}
             href="/projects"
+            variant="outlined"
             size="small"
             endIcon={<ArrowForwardIcon />}
             sx={{ textTransform: "none" }}
