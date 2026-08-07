@@ -7,6 +7,7 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
+  Chip,
   Typography,
   IconButton,
   Button,
@@ -21,7 +22,7 @@ import {
 } from "@mui/icons-material";
 import Link from "next/link";
 import { alpha } from "@mui/material/styles";
-import { projects } from "../../content/projects";
+import { projects, getProjectAffiliation } from "../../content/projects";
 
 const HIGHLIGHT_COUNT = 3;
 const ROTATE_INTERVAL_MS = 10000;
@@ -138,6 +139,13 @@ export default function HomeProjectCarousel({
                     <Typography variant="subtitle1" sx={{ fontWeight: 600, mb: 0.5 }}>
                       {project.title}
                     </Typography>
+                    <Chip
+                      label={getProjectAffiliation(project)}
+                      size="small"
+                      variant="outlined"
+                      color={project.context === "employer" ? "primary" : "default"}
+                      sx={{ mb: 1 }}
+                    />
                     <Typography variant="body2" color="text.secondary">
                       {project.shortDescription}
                     </Typography>
