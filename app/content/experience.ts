@@ -6,14 +6,14 @@ export const experience: Experience[] = [
     company: "AAI Labs",
     period: "Jul 2026 - present",
     description:
-      "Lead engineering on an autonomous B2B voice calling platform for a European client. The system places outbound calls, holds the conversation with speech recognition, text-to-speech, and an LLM, and hands off to a human operator mid-call when needed. Took the platform from calls placed one at a time to thousands running concurrently across multiple languages, validated concurrency against the telephony provider, and built automatic language detection into the call pipeline.",
+      "Lead engineering on an autonomous B2B voice calling platform for a European client. It places outbound calls, holds the conversation itself with speech recognition, text-to-speech and an LLM, and hands a live call to a human operator when one is needed. I took it from calls placed one at a time to thousands running concurrently across multiple languages, and validated that ceiling against the telephony provider. The conversation engine is a LangGraph state machine over the call stages, with guardrails and backtracking so long calls stay on script. I added automatic language detection to the pipeline, and I own the CI/CD, deployment and production monitoring for the AI services.",
   },
   {
     role: "AI/ML Engineer",
     company: "AAI Labs",
     period: "Jul 2024 - present",
     description:
-      "Delivery and research across voice AI, computer vision, EU research proposals, and LLM evaluation. Built the georeferencing and object-tracking pipeline for a 5G-connected drone system, detecting and tracking objects from live video and resolving each detection to GPS coordinates from the drone's position and camera orientation; the work was presented to and accepted by an EU committee. Leads the technical concept and proposal writing for AAI Labs' EU research grant applications and coordinates consortium partners across Europe. Led a three-person team on a study of instruction-following in multi-turn LLM workflows, accepted at ICIST 2026 in Kaunas.",
+      "Delivery and research across voice AI, computer vision, EU research proposals, and LLM evaluation. Built the georeferencing and object-tracking pipeline for a 5G-connected drone system, detecting and tracking objects from live video and resolving each detection to GPS coordinates from the drone's position and camera orientation; the work was presented to and accepted by an EU committee. Leads the technical concept and proposal writing for AAI Labs' EU research grant applications and coordinates consortium partners across Europe. Lead author on a three-person study of instruction-following in multi-turn LLM workflows, comparing prompting against explicit control architectures and building the LLM-as-judge evaluation harness. Accepted at ICIST 2026 in Kaunas.",
   },
   {
     role: "Network Administrator",
