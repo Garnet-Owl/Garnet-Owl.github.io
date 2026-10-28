@@ -8,12 +8,41 @@ export function getProjectAffiliation(project: Project): string {
 
 export const projects: Project[] = [
   {
+    slug: "onboard-vision-for-aid-delivery-drones",
+    title: "Onboard Vision for Aid-Delivery Drones",
+    shortDescription:
+      "Computer vision that runs on a delivery drone to find a safe drop area and predict where a payload will land.",
+    description:
+      "An EU-funded Eureka R&D project building the onboard AI for drones that drop aid packages. A ground hazard segmentation model scans the area below for water, people, vehicles and buildings and declares a drop area safe only after it stays clear for a set time. A second pipeline tracks test drops from the drone camera, reconstructs their 3D fall and estimates the wind, so the drone can predict where a payload will land. Everything runs on an NVIDIA Jetson, and models are trained on real aerial footage plus scenes generated in Isaac Sim.",
+    imageUrl: "/images/projects/onboard-vision-for-aid-delivery-drones.svg",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "YOLO",
+      "Image Segmentation",
+      "Object Tracking",
+      "NVIDIA Jetson",
+      "TensorRT",
+      "Isaac Sim",
+    ],
+    period: "Oct 2026 - present",
+    role: "Team lead",
+    context: "employer",
+    status: "ongoing",
+    featured: true,
+    highlights: [
+      "Retrained the ground hazard model on open aerial data, with a large gain on water, its weakest class.",
+      "Validated the 3D trajectory and wind estimates against simulation ground truth.",
+      "Runs on the drone itself, on an NVIDIA Jetson with TensorRT.",
+    ],
+  },
+  {
     slug: "autonomous-voice-calling-platform",
     title: "Autonomous B2B Voice Calling Platform",
     shortDescription:
       "An AI voice-calling system that runs outbound B2B calls at scale, with a human operator able to step in on live calls.",
     description:
-      "A B2B voice-calling platform that places outbound calls autonomously across multiple languages, running thousands of calls concurrently. A semi-automatic mode lets a human operator listen in and take over a call in real time when the automated path needs support. The system reads caller sentiment during the conversation and uses reinforcement learning to improve call quality and conversion rate over time.",
+      "A B2B voice-calling platform that places outbound calls autonomously across multiple languages and runs many calls in parallel. The conversation is a LangGraph state machine over the call stages, with guardrails that block invalid steps. An assisted mode lets a person listen in and take over a call in real time when the automated path needs support.",
     imageUrl: "/images/projects/autonomous-voice-calling-platform.svg",
     technologies: [
       "Python",
@@ -24,15 +53,15 @@ export const projects: Project[] = [
       "GCP",
       "Redis",
     ],
-    period: "Jun 2025 - present",
-    role: "Project manager and contributor",
+    period: "Jun 2025 - Sep 2026",
+    role: "Engineer, then team lead",
     context: "employer",
-    status: "ongoing",
+    status: "completed",
     featured: true,
     highlights: [
-      "Runs thousands of calls concurrently across languages, with a call-now / assisted mode for human hand-off.",
-      "Reads caller sentiment in real time and uses reinforcement learning to improve conversion over time.",
-      "Managed concurrency testing, system investigation, and delivery coordination as project lead.",
+      "Places calls in parallel across languages, with an assisted mode for handing a live call to a person.",
+      "Detects the caller's language automatically and answers in it.",
+      "Led the team that delivered parallel calling and a simulation engine for testing calls, then handed the platform to the client.",
     ],
     liveUrl: "https://www.aai-labs.com/en/cases/export",
   },
@@ -112,7 +141,7 @@ export const projects: Project[] = [
     shortDescription:
       "Research into keeping AI voice agents on track through complex multi-turn workflows like sales calls.",
     description:
-      'Research into how AI voice agents manage complex multi-turn workflows, such as sales calls, without losing their place. A pluggable background-agent architecture checks conversation state and stage changes against the intended workflow in real time, running alongside the main agent and injecting corrections when a response drifts from the stage rules. The work is written up as "Towards Reliable Instruction-Following in LLM Multi-Turn Workflows," accepted for ICIST 2026 in Kaunas.',
+      'Research into how AI voice agents manage complex multi-turn workflows, such as sales calls, without losing their place. A pluggable background-agent architecture checks conversation state and stage changes against the intended workflow in real time, running alongside the main agent and injecting corrections when a response drifts from the stage rules. The work is written up as "Towards Reliable Instruction-Following in LLM Multi-Turn Workflows," presented at ICIST 2026 in Kaunas.',
     imageUrl: "/images/projects/llm-instruction-following-research.svg",
     technologies: ["Python", "LLM Agents", "Multi-Agent Systems"],
     period: "2025 - 2026",
@@ -123,7 +152,7 @@ export const projects: Project[] = [
     highlights: [
       "Background-agent architecture checks conversation state against workflow rules in real time.",
       "Runs a main agent and validator in parallel, injecting corrections when a response drifts.",
-      "Accepted for publication at ICIST 2026, Kaunas.",
+      "Presented at ICIST 2026, Kaunas.",
     ],
     liveUrl:
       "https://www.aai-labs.com/en/research/reliable-instruction-following-llm-multi-turn-workflows",

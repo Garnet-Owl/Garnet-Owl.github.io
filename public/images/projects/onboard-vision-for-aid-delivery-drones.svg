@@ -1,0 +1,37 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Onboard vision for aid-delivery drones">
+  <style>
+    .bg { fill: #eef3f8; }
+    .grid { stroke: #d3dfeb; }
+    .accent { stroke: #1f5f99; fill: none; }
+    .dot { fill: #1f5f99; }
+    .zone { fill: #1f5f99; opacity: 0.12; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0f1a26; }
+      .grid { stroke: #1f3247; }
+      .accent { stroke: #6fb1ef; }
+      .dot { fill: #6fb1ef; }
+      .zone { fill: #6fb1ef; opacity: 0.16; }
+    }
+  </style>
+  <rect class="bg" width="1200" height="800" />
+  <g class="grid" stroke-width="1">
+    <line x1="0" y1="560" x2="1200" y2="560" />
+    <line x1="0" y1="680" x2="1200" y2="680" />
+    <line x1="300" y1="460" x2="300" y2="800" />
+    <line x1="900" y1="460" x2="900" y2="800" />
+  </g>
+  <ellipse class="zone" cx="600" cy="640" rx="210" ry="60" />
+  <ellipse class="accent" cx="600" cy="640" rx="210" ry="60" stroke-width="3" stroke-dasharray="14 10" />
+  <g class="accent" stroke-width="4" stroke-linecap="round">
+    <line x1="520" y1="170" x2="680" y2="170" />
+    <line x1="540" y1="150" x2="500" y2="150" />
+    <line x1="660" y1="150" x2="700" y2="150" />
+    <line x1="600" y1="170" x2="600" y2="200" />
+  </g>
+  <rect class="accent" x="570" y="200" width="60" height="40" rx="6" stroke-width="4" />
+  <path class="accent" d="M600 240 C 610 330, 640 420, 660 520" stroke-width="3" stroke-dasharray="6 12" />
+  <circle class="dot" cx="618" cy="320" r="7" />
+  <circle class="dot" cx="636" cy="400" r="7" />
+  <circle class="dot" cx="652" cy="470" r="7" />
+  <circle class="dot" cx="664" cy="530" r="12" />
+</svg>
