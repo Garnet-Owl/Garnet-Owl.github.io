@@ -5,6 +5,8 @@ export const profile: Profile = {
   headline: "Machine Learning Engineer and Team Lead at AAI Labs",
   summary:
     "I build machine learning systems and take them to production, from computer vision on drones to LLM pipelines and voice agents.",
+  currentFocus:
+    "Currently leading onboard computer vision for aid-delivery drones on an EU-funded Eureka project.",
   bio: [
     "I build machine learning systems and take them to production, from computer vision on drones to LLM pipelines and voice agents.",
     "Right now I lead the engineering team building onboard computer vision for aid-delivery drones, on an EU-funded Eureka R&D project with industry and university partners. The drone checks the ground for hazards to find a safe drop area and predicts where a payload will land from tracked test drops, all on an NVIDIA Jetson.",

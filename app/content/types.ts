@@ -54,6 +54,7 @@ export interface Profile {
   name: string;
   headline: string;
   summary: string;
+  currentFocus?: string;
   bio: string[];
   location?: string;
   contact: ContactLinks;

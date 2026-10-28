@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import TypewriterEffect from "@/app/components/TypewriterEffect";
 import ProfileImage from "@/app/dashboard/components/ProfileImage";
 import {
   Box,
@@ -11,7 +10,6 @@ import {
   Divider,
   Button,
   useTheme,
-  Paper,
 } from "@mui/material";
 import { Email as EmailIcon, Description as ResumeIcon } from "@mui/icons-material";
 import { useResponsive } from "@/app/context/ResponsiveContext";
@@ -34,14 +32,10 @@ const Hero = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Paper
-          elevation={3}
+        <Box
           className="hero-card"
           sx={{
-            bgcolor: "background.paper",
-            borderRadius: 2,
-            p: { xs: 2, sm: 3, md: 4 },
-            mt: 2,
+            py: { xs: 4, md: 7 },
           }}
         >
           <Box
@@ -81,10 +75,7 @@ const Hero = () => {
                     fontSize: { xs: "1.5rem", sm: "1.875rem", md: "2.25rem" },
                   }}
                 >
-                  <TypewriterEffect
-                    text={`Hi there, my name is ${profile.name}.`}
-                    speed={70}
-                  />
+                  Hi, I&apos;m {profile.name}.
                 </Typography>
 
                 <Typography
@@ -96,11 +87,7 @@ const Hero = () => {
                     mb: 1,
                   }}
                 >
-                  <TypewriterEffect
-                    text={profile.headline}
-                    speed={70}
-                    delay={3300}
-                  />
+                  {profile.headline}
                 </Typography>
               </Box>
 
@@ -121,12 +108,39 @@ const Hero = () => {
                   maxWidth: "650px",
                 }}
               >
-                <TypewriterEffect
-                  text={profile.summary}
-                  speed={40}
-                  delay={5600}
-                />
+                {profile.summary}
               </Typography>
+
+              {profile.currentFocus && (
+                <Box
+                  sx={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 1.25,
+                    alignSelf: isMobile ? "center" : "flex-start",
+                    px: 1.75,
+                    py: 0.75,
+                    borderRadius: { xs: 2, sm: 99 },
+                    textAlign: "left",
+                    bgcolor: alpha(theme.palette.primary.main, 0.08),
+                    color: "text.primary",
+                    fontSize: { xs: "0.8125rem", sm: "0.875rem" },
+                  }}
+                >
+                  <Box
+                    component="span"
+                    aria-hidden
+                    sx={{
+                      width: 8,
+                      height: 8,
+                      flexShrink: 0,
+                      borderRadius: "50%",
+                      bgcolor: "success.main",
+                    }}
+                  />
+                  {profile.currentFocus}
+                </Box>
+              )}
 
               <Stack
                 direction={{ xs: "column", sm: "row" }}
@@ -155,7 +169,7 @@ const Hero = () => {
               </Stack>
             </Stack>
           </Box>
-        </Paper>
+        </Box>
       </Container>
     </Box>
   );
