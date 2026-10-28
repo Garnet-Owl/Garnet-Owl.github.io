@@ -14,9 +14,9 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const DEFAULT_TITLE = "James Wanjiku - AI/ML Engineer";
+const DEFAULT_TITLE = "James Wanjiku, Machine Learning Engineer";
 const DEFAULT_DESCRIPTION =
-  "James Wanjiku builds and ships AI systems that run in production: voice agents, computer vision, and LLM pipelines. AI/ML Engineer and Team Lead at AAI Labs.";
+  "James Wanjiku builds machine learning systems that run in production, from computer vision on drones to LLM pipelines and voice agents. Machine Learning Engineer and Team Lead at AAI Labs.";
 
 export const metadata = {
   metadataBase: new URL("https://garnet-owl.github.io"),
@@ -26,11 +26,13 @@ export const metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   keywords: [
+    "Machine Learning Engineer",
     "AI/ML Engineer",
     "Machine Learning",
     "Voice AI",
     "LLM",
     "Computer Vision",
+    "Edge AI",
     "Python",
     "Next.js",
     "TypeScript",
