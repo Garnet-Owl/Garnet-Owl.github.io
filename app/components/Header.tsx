@@ -157,6 +157,7 @@ const Header = () => {
                   px: { xs: 0.75, sm: 1.5 },
                   fontSize: { xs: "0.75rem", sm: "inherit" },
                   minWidth: { xs: "auto", sm: "64px" },
+                  whiteSpace: "nowrap",
                 },
               }}
             >
@@ -205,7 +206,7 @@ const Header = () => {
                   },
                 }}
               >
-                About Me
+                About
               </Button>
             </Box>
 
