@@ -6,7 +6,7 @@ export const experience: Experience[] = [
     company: "AAI Labs",
     period: "Jul 2026 - present",
     description:
-      "Lead the engineering team building onboard computer vision for aid-delivery drones on an EU-funded Eureka R&D project. I set the model accuracy targets, plan the work and review results, and still write code. Retrained the ground hazard segmentation model on new open aerial data, with a large gain on water, its weakest class, while the other classes held steady, and validated the 3D trajectory and wind estimates against simulation ground truth. From July to September 2026 I also led the autonomous B2B voice calling platform, and the team that delivered parallel calling, a simulation engine for testing calls and the handover of its GPU services to the client's own cloud.",
+      "Lead the engineering team building onboard computer vision for aid-delivery drones on an international R&D project with industry and university partners. I set the model accuracy targets, plan the work and review results, and still write code. Retrained the ground hazard segmentation model on new open aerial data, with a large gain on water, its weakest class, while the other classes held steady, and validated the 3D trajectory and wind estimates against simulation ground truth. From July to September 2026 I also led the autonomous B2B voice calling platform, and the team that delivered parallel calling, a simulation engine for testing calls and the handover of its GPU services to the client's own cloud.",
   },
   {
     role: "AI/ML Engineer",

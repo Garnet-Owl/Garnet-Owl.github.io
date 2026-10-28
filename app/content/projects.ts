@@ -13,7 +13,7 @@ export const projects: Project[] = [
     shortDescription:
       "Computer vision that runs on a delivery drone to find a safe drop area and predict where a payload will land.",
     description:
-      "An EU-funded Eureka R&D project building the onboard AI for drones that drop aid packages. A ground hazard segmentation model scans the area below for water, people, vehicles and buildings and declares a drop area safe only after it stays clear for a set time. A second pipeline tracks test drops from the drone camera, reconstructs their 3D fall and estimates the wind, so the drone can predict where a payload will land. Everything runs on an NVIDIA Jetson, and models are trained on real aerial footage plus scenes generated in Isaac Sim.",
+      "An international R&D project with industry and university partners, building the onboard AI for drones that drop aid packages. A ground hazard segmentation model scans the area below for water, people, vehicles and buildings and declares a drop area safe only after it stays clear for a set time. A second pipeline tracks test drops from the drone camera, reconstructs their 3D fall and estimates the wind, so the drone can predict where a payload will land. Everything runs on an NVIDIA Jetson, and models are trained on real aerial footage plus scenes generated in Isaac Sim.",
     imageUrl: "/images/projects/onboard-vision-for-aid-delivery-drones.svg",
     technologies: [
       "Python",
