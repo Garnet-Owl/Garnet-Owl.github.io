@@ -2,18 +2,18 @@ import { Experience } from "./types";
 
 export const experience: Experience[] = [
   {
-    role: "AI/ML Engineer, Team Lead",
+    role: "Team Lead, Machine Learning",
     company: "AAI Labs",
     period: "Jul 2026 - present",
     description:
-      "Lead engineering on an autonomous B2B voice calling platform for a European client. It places outbound calls, holds the conversation itself with speech recognition, text-to-speech and an LLM, and hands a live call to a human operator when one is needed. I took it from calls placed one at a time to thousands running concurrently across multiple languages, and validated that ceiling against the telephony provider. The conversation engine is a LangGraph state machine over the call stages, with guardrails and backtracking so long calls stay on script. I added automatic language detection to the pipeline, and I own the CI/CD, deployment and production monitoring for the AI services.",
+      "Lead the engineering team building onboard computer vision for aid-delivery drones on an EU-funded Eureka R&D project. I set the model accuracy targets, plan the work and review results, and still write code. Retrained the ground hazard segmentation model on new open aerial data, which lifted water detection from about 0.01 to 0.67 mAP on the new test set while the other classes held steady, and validated the 3D trajectory and wind estimates against simulation ground truth. From July to September 2026 I also led the autonomous B2B voice calling platform, and the team that delivered parallel calling, a simulation engine for testing calls and the handover of its GPU services to the client's own cloud.",
   },
   {
     role: "AI/ML Engineer",
     company: "AAI Labs",
-    period: "Jul 2024 - present",
+    period: "Jul 2024 - Jun 2026",
     description:
-      "Delivery and research across voice AI, computer vision, EU research proposals, and LLM evaluation. Built the georeferencing and object-tracking pipeline for a 5G-connected drone system, detecting and tracking objects from live video and resolving each detection to GPS coordinates from the drone's position and camera orientation; the work was presented to and accepted by an EU committee. Leads the technical concept and proposal writing for AAI Labs' EU research grant applications and coordinates consortium partners across Europe. Lead author on a three-person study of instruction-following in multi-turn LLM workflows, comparing prompting against explicit control architectures and building the LLM-as-judge evaluation harness. Accepted at ICIST 2026 in Kaunas.",
+      "Delivery and research across voice AI, computer vision, NLP and LLM evaluation. On the voice calling platform, from June 2025, built much of the real-time conversation layer and a LangGraph state engine that blocks invalid conversation steps, and added automatic language detection and an assisted mode where a person can join a live call. Built the georeferencing and object-tracking pipeline for a 5G-connected drone system, presented to and accepted by an EU committee. Built an NLP system that flags likely duplicate public funding applications for human review, and a recommendation service on FastAPI and GCP. Led a study of instruction-following in multi-turn LLM workflows and built its LLM-as-judge evaluation harness; lead author of the paper presented at ICIST 2026.",
   },
   {
     role: "Network Administrator",
