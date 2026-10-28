@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-28
+
+- Updated the resume, profile, experience, skills and publication date, and added the aid-delivery drone vision project.
+- Marked the voice calling platform as completed and refreshed the site title and description.
+
 ## 2026-08-07 (2)
 
 - Replaced the five placeholder projects with all eight real ones (MASTER_PLAN
